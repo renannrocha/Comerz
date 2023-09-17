@@ -1,3 +1,4 @@
 <div align="center" width="100%">
-    <h1><img width="5%" src="./assets/img/logo-easystock2.png" alt="logo"> EasyStock</h1>
+    <p><img width="5%" src="./assets/img/logo-easystock2.png" alt="logo"><br><b>EasyStock</b></p>
 </div>
+
