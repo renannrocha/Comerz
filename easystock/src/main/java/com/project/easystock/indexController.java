@@ -22,9 +22,7 @@ public class indexController {
 
     @FXML
     void LogOut(ActionEvent event) {
-    	Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+    	
     }
 
     @FXML

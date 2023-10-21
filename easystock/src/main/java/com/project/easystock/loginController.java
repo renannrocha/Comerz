@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -45,6 +46,7 @@ public class loginController {
 	            Stage appStage = new Stage();
 	            appStage.setResizable(false);
 	            appStage.setMaximized(true);
+	            appStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
 	            appStage.setTitle("EasyStock");
 	            appStage.setScene(new Scene(root));
 	            appStage.show();
