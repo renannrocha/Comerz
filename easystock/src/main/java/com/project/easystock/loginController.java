@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class loginController {
@@ -30,6 +31,13 @@ public class loginController {
 	
 	@FXML
 	private Button btnLogin;
+	
+	@FXML
+    private Text txtStatusPassword;
+
+    @FXML
+    private Text txtStatusUsername;
+
 
 	@FXML
     void btnLogin(MouseEvent event) {
@@ -53,15 +61,20 @@ public class loginController {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
+		} else {
+			txtStatusPassword.setVisible(true);
+			txtStatusUsername.setVisible(true);
+			txtUsernameArea.setText("");
+			txtPasswordArea.setText("");
 		}
-		// adicionar mensagem de erro caso login estiver errado
     }
 
 	@FXML
 	void initialize() {
 		assert txtPasswordArea != null : "fx:id=\"txtPasswordArea\" was not injected: check your FXML file 'Untitled'.";
 		assert txtUsernameArea != null : "fx:id=\"txtUsernameArea\" was not injected: check your FXML file 'Untitled'.";
-
+		assert txtStatusPassword != null : "fx:id=\"txtStatusPassword\" was not injected: check your FXML file 'login.fxml'.";
+        assert txtStatusUsername != null : "fx:id=\"txtStatusUsername\" was not injected: check your FXML file 'login.fxml'.";
 	}
 
 }

@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.loginController">
    <children>
       <Pane layoutX="510.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0">
@@ -42,12 +41,12 @@
                   <Font size="15.0" />
                </font>
             </PasswordField>
-            <RadioButton layoutX="130.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="193.0" text="Remember me">
+            <RadioButton layoutX="130.0" layoutY="369.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="193.0" text="Remember me">
                <font>
                   <Font size="14.0" />
                </font>
             </RadioButton>
-            <Button fx:id="btnLogin" layoutX="130.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#btnLogin" prefHeight="44.0" prefWidth="430.0" text="Sing in">
+            <Button fx:id="btnLogin" layoutX="130.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#btnLogin" prefHeight="44.0" prefWidth="430.0" text="Sing in">
                <font>
                   <Font size="18.0" />
                </font>
@@ -57,17 +56,27 @@
                   <Font size="13.0" />
                </font>
             </Text>
-            <Hyperlink layoutX="447.0" layoutY="347.0" text="Forgot Password">
+            <Hyperlink layoutX="447.0" layoutY="372.0" text="Forgot Password">
                <font>
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Hyperlink layoutX="285.0" layoutY="439.0" text="Sing up">
+            <Hyperlink layoutX="285.0" layoutY="453.0" text="Sing up">
                <font>
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Text layoutX="131.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont't have an account ? " wrappingWidth="160.13671875">
+            <Text layoutX="130.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont't have an account ? " wrappingWidth="160.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtStatusPassword" fill="RED" layoutX="131.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect password" visible="false" wrappingWidth="205.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtStatusUsername" fill="RED" layoutX="131.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Incorrect username" visible="false" wrappingWidth="205.13671875">
                <font>
                   <Font size="14.0" />
                </font>
