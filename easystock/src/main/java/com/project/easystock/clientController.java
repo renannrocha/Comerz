@@ -13,19 +13,19 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class indexController {
-
-    @FXML
+public class clientController {
+	
+	@FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
 
     @FXML
-    private Button btnClientpage;
+    private Button btnConfigPage;
 
     @FXML
-    private Button btnConfigPage;
+    private Button btnDashbord;
 
     @FXML
     private Button btnFornecedoresPage;
@@ -39,13 +39,12 @@ public class indexController {
     @FXML
     private Button btnSalespage;
 
-    // start - nav bar functions
     @FXML
-    private void btnOpenClientPage(ActionEvent event) throws IOException {
+    private void btnOpenConfigPage(ActionEvent event) throws IOException {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("config.fxml"));
         Scene scene = new Scene(root);
         novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         novoStage.setTitle("EasyStock");
@@ -55,11 +54,11 @@ public class indexController {
     }
 
     @FXML
-    private void btnOpenConfigPage(ActionEvent event) throws IOException {
+    private void btnOpenDashbord(ActionEvent event) throws IOException {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("config.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
         Scene scene = new Scene(root);
         novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         novoStage.setTitle("EasyStock");
@@ -84,7 +83,7 @@ public class indexController {
 
     @FXML
     private void btnOpenProductPage(ActionEvent event) throws IOException {
-        Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
@@ -123,16 +122,17 @@ public class indexController {
         novoStage.setScene(scene);
         novoStage.show();
     }
-    // end - nav bar functions
 
     @FXML
     void initialize() {
-        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'index.fxml'.";
+        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'client.fxml'.";
+        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'client.fxml'.";
+        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'client.fxml'.";
+        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'client.fxml'.";
+        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'client.fxml'.";
+        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'client.fxml'.";
 
     }
+
+	
 }

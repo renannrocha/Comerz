@@ -45,7 +45,7 @@ public class loginController {
 	            Parent root = fxmlLoader.load();
 	            Stage appStage = new Stage();
 	            appStage.setResizable(false);
-	            appStage.setMaximized(true);
+	            appStage.setMaximized(false);
 	            appStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
 	            appStage.setTitle("EasyStock");
 	            appStage.setScene(new Scene(root));

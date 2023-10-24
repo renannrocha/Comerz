@@ -19,7 +19,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 700, 600);
-        //stage.setFullScreen(false);
         //icone de janela
         stage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         stage.setTitle("EasyStock");

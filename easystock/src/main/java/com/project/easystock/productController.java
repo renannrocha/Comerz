@@ -6,14 +6,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
-public class indexController {
+public class productController {
 
     @FXML
     private ResourceBundle resources;
@@ -28,10 +29,10 @@ public class indexController {
     private Button btnConfigPage;
 
     @FXML
-    private Button btnFornecedoresPage;
+    private Button btnDashbord;
 
     @FXML
-    private Button btnProductPage;
+    private Button btnFornecedoresPage;
 
     @FXML
     private Button btnRequestPage;
@@ -39,18 +40,28 @@ public class indexController {
     @FXML
     private Button btnSalespage;
 
-    // start - nav bar functions
     @FXML
     private void btnOpenClientPage(ActionEvent event) throws IOException {
-    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	 // Obtém o Stage atual.
+        Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        
+        // Fecha a janela atual.
         stageAtual.close();
+        
+        // Cria um novo Stage.
         Stage novoStage = new Stage();
+        
+        // Carrega a nova janela.
         Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
+        
+        // Define a Scene para o novo Stage.
         Scene scene = new Scene(root);
         novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
+        
+        // Mostra o novo Stage.
         novoStage.show();
     }
 
@@ -69,11 +80,11 @@ public class indexController {
     }
 
     @FXML
-    private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
-    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    private void btnOpenDashbord(ActionEvent event) throws IOException {
+        Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("suppliers.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
         Scene scene = new Scene(root);
         novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         novoStage.setTitle("EasyStock");
@@ -83,11 +94,11 @@ public class indexController {
     }
 
     @FXML
-    private void btnOpenProductPage(ActionEvent event) throws IOException {
-        Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
+    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("suppliers.fxml"));
         Scene scene = new Scene(root);
         novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
         novoStage.setTitle("EasyStock");
@@ -123,16 +134,15 @@ public class indexController {
         novoStage.setScene(scene);
         novoStage.show();
     }
-    // end - nav bar functions
 
     @FXML
     void initialize() {
-        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'index.fxml'.";
-
+        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'product.fxml'.";
+        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'product.fxml'.";
+        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'product.fxml'.";
+        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'product.fxml'.";
+        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'product.fxml'.";
+        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'product.fxml'.";
     }
+	
 }
