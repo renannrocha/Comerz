@@ -5,66 +5,83 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.loginController">
+
+<AnchorPane prefHeight="600.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.loginController">
    <children>
-      <Text layoutX="259.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing In" textAlignment="CENTER" wrappingWidth="172.017578125">
-         <font>
-            <Font name="Yu Gothic UI Bold" size="44.0" />
-         </font>
-      </Text>
-      <Text fill="RED" layoutX="130.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="error : Invalid user" visible="false" wrappingWidth="246.13671875">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Text>
-      <TextField fx:id="txtUsernameArea" layoutX="130.0" layoutY="215.0" prefHeight="44.0" prefWidth="430.0" promptText="you_email@gmail.com">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Text fill="RED" layoutX="131.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="error : invalid password" visible="false" wrappingWidth="364.13671875">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Text>
-      <PasswordField fx:id="txtPasswordArea" layoutX="131.0" layoutY="278.0" prefHeight="44.0" prefWidth="430.0" promptText="Password">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
-      <RadioButton layoutX="130.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="193.0" text="Remember me">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </RadioButton>
-      <Button fx:id="btnLogin" layoutX="130.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#btnLogin" prefHeight="44.0" prefWidth="430.0" text="Sing in">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Text layoutX="54.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EasyStock ©" textAlignment="CENTER" wrappingWidth="582.13671875">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Text>
-      <Hyperlink layoutX="447.0" layoutY="347.0" text="Forgot Password">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Hyperlink>
-      <Hyperlink layoutX="285.0" layoutY="439.0" text="Sing up">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Hyperlink>
-      <Text layoutX="131.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont't have an account ? " wrappingWidth="160.13671875">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
+      <Pane layoutX="510.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0">
+         <children>
+            <Text layoutX="259.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing In" textAlignment="CENTER" wrappingWidth="172.017578125">
+               <font>
+                  <Font name="Yu Gothic UI Bold" size="44.0" />
+               </font>
+            </Text>
+            <Text fill="RED" layoutX="130.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="error : Invalid user" visible="false" wrappingWidth="246.13671875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtUsernameArea" layoutX="130.0" layoutY="215.0" prefHeight="44.0" prefWidth="430.0" promptText="you_email@gmail.com">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Text fill="RED" layoutX="131.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="error : invalid password" visible="false" wrappingWidth="364.13671875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="txtPasswordArea" layoutX="131.0" layoutY="278.0" prefHeight="44.0" prefWidth="430.0" promptText="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+            <RadioButton layoutX="130.0" layoutY="344.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="193.0" text="Remember me">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
+            <Button fx:id="btnLogin" layoutX="130.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#btnLogin" prefHeight="44.0" prefWidth="430.0" text="Sing in">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Text layoutX="54.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EasyStock ©" textAlignment="CENTER" wrappingWidth="582.13671875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="447.0" layoutY="347.0" text="Forgot Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="285.0" layoutY="439.0" text="Sing up">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Text layoutX="131.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont't have an account ? " wrappingWidth="160.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane prefHeight="600.0" prefWidth="510.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/diretorios/EasyStock/easystock/assets/EasyStock.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>
