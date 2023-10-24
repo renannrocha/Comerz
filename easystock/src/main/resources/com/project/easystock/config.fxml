@@ -46,6 +46,6 @@
             </Button>
          </children>
       </Pane>
-      <Line endX="1154.0" layoutX="246.0" layoutY="60.0" startX="-246.0" />
+      <Line endX="1154.0" layoutX="246.0" layoutY="60.0" startX="-246.0" stroke="#d0d0d0" />
    </children>
 </Pane>
