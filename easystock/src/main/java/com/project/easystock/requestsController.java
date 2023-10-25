@@ -73,7 +73,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -87,7 +88,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("config.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -101,7 +103,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -115,7 +118,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("suppliers.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -129,7 +133,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -143,7 +148,8 @@ public class requestsController {
         Stage novoStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("sales.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);

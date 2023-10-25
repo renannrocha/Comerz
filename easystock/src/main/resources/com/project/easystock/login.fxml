@@ -83,14 +83,8 @@
             </Text>
          </children>
       </Pane>
-      <Pane prefHeight="600.0" prefWidth="510.0">
-         <effect>
-            <ImageInput>
-               <source>
-                  <Image url="file:/C:/diretorios/EasyStock/easystock/assets/EasyStock.png" />
-               </source>
-            </ImageInput>
-         </effect>
+      <Pane fx:id="imagePane" prefHeight="600.0" prefWidth="510.0">
+         <!-- nada aqui -->
       </Pane>
    </children>
 </AnchorPane>

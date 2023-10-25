@@ -12,8 +12,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
+
 
 public class loginController {
 
@@ -37,6 +40,9 @@ public class loginController {
 
     @FXML
     private Text txtStatusUsername;
+    
+    @FXML
+    private Pane imagePane;
 
 
 	@FXML
@@ -54,7 +60,8 @@ public class loginController {
 	            Stage appStage = new Stage();
 	            appStage.setResizable(false);
 	            appStage.setMaximized(false);
-	            appStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+	            Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+	            appStage.getIcons().add(applicationIcon);
 	            appStage.setTitle("EasyStock");
 	            appStage.setScene(new Scene(root));
 	            appStage.show();
@@ -71,6 +78,11 @@ public class loginController {
 
 	@FXML
 	void initialize() {
+		
+		Image image = new Image(getClass().getResourceAsStream("/com/project/easystock/img/EasyStock.png"));
+        ImageView imageView = new ImageView(image);
+        imagePane.getChildren().add(imageView);
+		
 		assert txtPasswordArea != null : "fx:id=\"txtPasswordArea\" was not injected: check your FXML file 'Untitled'.";
 		assert txtUsernameArea != null : "fx:id=\"txtUsernameArea\" was not injected: check your FXML file 'Untitled'.";
 		assert txtStatusPassword != null : "fx:id=\"txtStatusPassword\" was not injected: check your FXML file 'login.fxml'.";

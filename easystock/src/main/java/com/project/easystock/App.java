@@ -20,7 +20,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 1210, 600);
         //icone de janela
-        stage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        stage.getIcons().add(applicationIcon);
         stage.setTitle("EasyStock");
         stage.setResizable(false);
         stage.setScene(scene);
