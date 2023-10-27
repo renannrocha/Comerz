@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+//import com.project.easystock.dao.FornecedorDao;
 
 import java.io.IOException;
 
@@ -18,6 +19,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+    	//FornecedorDao fornecedorDao = new FornecedorDao();
+    	//fornecedorDao.criarTabelaFornecedor();
+    	
         scene = new Scene(loadFXML("login"), 1210, 600);
         //icone de janela
         Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));

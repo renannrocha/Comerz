@@ -1,4 +1,4 @@
-package com.project.easystock;
+package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,7 +71,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/client.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);
@@ -86,7 +86,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("config.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/config.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);
@@ -101,7 +101,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/index.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);
@@ -116,7 +116,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/product.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);
@@ -131,7 +131,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("requests.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requests.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);
@@ -146,7 +146,7 @@ public class suppliersController {
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("sales.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/sales.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         novoStage.getIcons().add(applicationIcon);

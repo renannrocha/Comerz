@@ -1,4 +1,4 @@
-package com.project.easystock;
+package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,9 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class indexController {
+public class configController {
 
-    @FXML
+	@FXML
     private ResourceBundle resources;
 
     @FXML
@@ -25,7 +25,7 @@ public class indexController {
     private Button btnClientpage;
 
     @FXML
-    private Button btnConfigPage;
+    private Button btnDashbord;
 
     @FXML
     private Button btnFornecedoresPage;
@@ -39,15 +39,15 @@ public class indexController {
     @FXML
     private Button btnSalespage;
 
-    // start - nav bar functions
     @FXML
     private void btnOpenClientPage(ActionEvent event) throws IOException {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("client.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/client.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -55,13 +55,14 @@ public class indexController {
     }
 
     @FXML
-    private void btnOpenConfigPage(ActionEvent event) throws IOException {
+    private void btnOpenDashbord(ActionEvent event) throws IOException {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("config.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/index.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -73,9 +74,10 @@ public class indexController {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("suppliers.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/suppliers.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -84,12 +86,13 @@ public class indexController {
 
     @FXML
     private void btnOpenProductPage(ActionEvent event) throws IOException {
-        Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("product.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/product.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);;
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -101,9 +104,10 @@ public class indexController {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("requests.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requests.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
@@ -115,24 +119,26 @@ public class indexController {
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("sales.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/sales.fxml"));
         Scene scene = new Scene(root);
-        novoStage.getIcons().add(new Image("file:C:\\diretorios\\EasyStock\\easystock\\assets\\logo-easystock2.png"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
         novoStage.show();
     }
-    // end - nav bar functions
 
     @FXML
     void initialize() {
-        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'index.fxml'.";
-        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'index.fxml'.";
+        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'config.fxml'.";
+        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'config.fxml'.";
+        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'config.fxml'.";
+        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'config.fxml'.";
+        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'config.fxml'.";
+        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'config.fxml'.";
 
     }
+
+	
 }

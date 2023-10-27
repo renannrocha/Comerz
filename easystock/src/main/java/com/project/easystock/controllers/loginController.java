@@ -1,4 +1,4 @@
-package com.project.easystock;
+package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +16,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+import com.project.easystock.dao.UsuarioDao;
+import com.project.easystock.model.Usuario;
 
 
 public class loginController {
@@ -47,15 +49,18 @@ public class loginController {
 
 	@FXML
     void btnLogin(MouseEvent event) {
-		String user = txtUsernameArea.getText();
-		String password = txtPasswordArea.getText();
+		UsuarioDao usuarioDao = new UsuarioDao();
+		Usuario usuario = new Usuario();
 		
-		if ("admin@mail.com".equals(user) && "104030".equals(password)) {
+		usuario.setEmail(txtUsernameArea.getText());
+		usuario.setSenha(txtPasswordArea.getText());
+		
+		if (usuarioDao.validarUsuarioPorEmail(usuario)) {
 			Stage stage = (Stage) btnLogin.getScene().getWindow();
 	        stage.close();
 	        
 	        try {
-	            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("index.fxml"));
+	            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/project/easystock/index.fxml"));
 	            Parent root = fxmlLoader.load();
 	            Stage appStage = new Stage();
 	            appStage.setResizable(false);
