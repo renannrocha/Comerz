@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.indexController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.IndexController">
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
@@ -37,11 +37,6 @@
                </font>
             </Button>
             <Button fx:id="btnSalespage" layoutX="509.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenSalesPage" text="Vendas" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnConfigPage" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenConfigPage" text="configurações" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>

@@ -7,9 +7,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.requestsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.RequestsController">
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
@@ -43,136 +42,34 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnConfigPage" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenConfigPage" text="configurações" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
       <Line endX="1154.0" layoutX="246.0" layoutY="60.0" startX="-246.0" stroke="#d0d0d0" />
-      <Pane layoutY="600.0" prefHeight="200.0" prefWidth="1400.0">
+      <Pane layoutY="713.0" prefHeight="87.0" prefWidth="1400.0">
          <children>
-            <Button fx:id="btnCRUDpesquisar" defaultButton="true" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarPesquisa" prefHeight="25.0" prefWidth="140.0" text="Pesquisar">
+            <Button fx:id="btnCRUDpesquisar" defaultButton="true" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarPesquisa" prefHeight="25.0" prefWidth="330.0" text="Pesquisar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnCRUDeditar" defaultButton="true" layoutX="168.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarEditar" prefHeight="25.0" prefWidth="140.0" text="Editar">
+            <Button fx:id="btnCRUDeditar" defaultButton="true" layoutX="364.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarEditar" prefHeight="25.0" prefWidth="330.0" text="Editar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnCRUDexcluir" defaultButton="true" layoutX="168.0" layoutY="74.0" mnemonicParsing="false" onAction="#gerenciarExcluir" prefHeight="25.0" prefWidth="140.0" text="Excluir">
+            <Button fx:id="btnCRUDexcluir" defaultButton="true" layoutX="1056.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarExcluir" prefHeight="25.0" prefWidth="330.0" text="Excluir">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnCRUDadicionar" defaultButton="true" layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#gerenciarAdicoes" prefHeight="25.0" prefWidth="140.0" text="Adicionar">
+            <Button fx:id="btnCRUDadicionar" defaultButton="true" layoutX="710.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarAdicoes" prefHeight="25.0" prefWidth="330.0" text="Adicionar">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Line endX="-226.5" endY="106.0" layoutX="559.0" layoutY="94.0" startX="-226.5" startY="-94.0" stroke="#d0d0d0" />
-            <AnchorPane fx:id="paneCRUDpesquisar" layoutX="333.0" prefHeight="200.0" prefWidth="1068.0" visible="false">
-               <children>
-                  <Button layoutX="996.0" layoutY="159.0" mnemonicParsing="false" text="Aplicar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="921.0" layoutY="159.0" mnemonicParsing="false" text="Cancelar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="501.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="854.0" layoutY="159.0" mnemonicParsing="false" text="Limpar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="paneCRUDadicionar" layoutX="333.0" prefHeight="200.0" prefWidth="1068.0" visible="false">
-               <children>
-                  <Button layoutX="996.0" layoutY="159.0" mnemonicParsing="false" text="Aplicar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="921.0" layoutY="159.0" mnemonicParsing="false" text="Cancelar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="501.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="854.0" layoutY="159.0" mnemonicParsing="false" text="Limpar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="paneCRUDeditar" layoutX="333.0" prefHeight="200.0" prefWidth="1068.0" visible="false">
-               <children>
-                  <Button layoutX="996.0" layoutY="159.0" mnemonicParsing="false" text="Aplicar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="921.0" layoutY="159.0" mnemonicParsing="false" text="Cancelar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="501.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="854.0" layoutY="159.0" mnemonicParsing="false" text="Limpar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="paneCRUDexcluir" layoutX="333.0" prefHeight="200.0" prefWidth="1068.0" visible="false">
-               <children>
-                  <Button layoutX="996.0" layoutY="159.0" mnemonicParsing="false" text="Aplicar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="921.0" layoutY="159.0" mnemonicParsing="false" text="Cancelar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="501.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="excluir">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Text>
-                  <Button layoutX="854.0" layoutY="159.0" mnemonicParsing="false" text="Limpar">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
          </children>
       </Pane>
-      <ScrollPane layoutY="60.0" prefHeight="539.0" prefWidth="1400.0">
+      <ScrollPane layoutY="60.0" prefHeight="651.0" prefWidth="1400.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1385.0">
                <children>

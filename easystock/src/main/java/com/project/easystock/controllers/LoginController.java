@@ -20,7 +20,7 @@ import com.project.easystock.dao.UsuarioDao;
 import com.project.easystock.model.Usuario;
 
 
-public class loginController {
+public class LoginController {
 
 	@FXML
 	private ResourceBundle resources;

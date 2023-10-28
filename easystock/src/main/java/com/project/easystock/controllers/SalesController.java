@@ -14,7 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class salesController {
+public class SalesController {
 
 	  @FXML
 	    private ResourceBundle resources;
@@ -24,9 +24,6 @@ public class salesController {
 
 	    @FXML
 	    private Button btnClientpage;
-
-	    @FXML
-	    private Button btnConfigPage;
 
 	    @FXML
 	    private Button btnDashbord;
@@ -41,6 +38,9 @@ public class salesController {
 	    private Button btnRequestPage;
 	    
 	    // CRUD buttons
+	    @FXML
+	    private Stage productWindowStage;
+	    
 	  	@FXML
 	  	private Button btnCRUDadicionar;
 
@@ -52,22 +52,17 @@ public class salesController {
 
 	  	@FXML
 	  	private Button btnCRUDpesquisar;
-
-	  	// CRUD panes
-	  	@FXML
-	  	private AnchorPane paneCRUDadicionar;
-
-	  	@FXML
-	  	private AnchorPane paneCRUDeditar;
-
-	  	@FXML
-	  	private AnchorPane paneCRUDexcluir;
-
-	  	@FXML
-	  	private AnchorPane paneCRUDpesquisar;
+	  	
+	  	private void closeProductWindow() {
+	        if (productWindowStage != null) {
+	            productWindowStage.close();
+	            productWindowStage = null;
+	        }
+	    }
 
 	    @FXML
 	    private void btnOpenClientPage(ActionEvent event) throws IOException {
+	    	closeProductWindow();
 	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
@@ -82,22 +77,8 @@ public class salesController {
 	    }
 
 	    @FXML
-	    private void btnOpenConfigPage(ActionEvent event) throws IOException {
-	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	        stageAtual.close();
-	        Stage novoStage = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/config.fxml"));
-	        Scene scene = new Scene(root);
-	        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-	        novoStage.getIcons().add(applicationIcon);
-	        novoStage.setTitle("EasyStock");
-	        novoStage.setResizable(false);
-	        novoStage.setScene(scene);
-	        novoStage.show();
-	    }
-
-	    @FXML
 	    private void btnOpenDashbord(ActionEvent event) throws IOException {
+	    	closeProductWindow();
 	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
@@ -113,6 +94,7 @@ public class salesController {
 
 	    @FXML
 	    private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
+	    	closeProductWindow();
 	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
@@ -128,6 +110,7 @@ public class salesController {
 
 	    @FXML
 	    private void btnOpenProductPage(ActionEvent event) throws IOException {
+	    	closeProductWindow();
 	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
@@ -143,6 +126,7 @@ public class salesController {
 
 	    @FXML
 	    private void btnOpenRequestPage(ActionEvent event) throws IOException {
+	    	closeProductWindow();
 	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
@@ -157,60 +141,39 @@ public class salesController {
 	    }
 	    
 	    // navegação CRUD
+	    private void openProductWindow() throws IOException {
+	        if (productWindowStage != null) {
+	            productWindowStage.close();
+	        }
+	        Stage novoStage = new Stage();
+	  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/salesWindowCRUD.fxml"));
+	        Scene scene = new Scene(root);
+	        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+	        novoStage.getIcons().add(applicationIcon);
+	        novoStage.setTitle("EasyStock");
+	        novoStage.setResizable(false);
+	        novoStage.setScene(scene);
+	        novoStage.show();
+	    }
+	    
 	  	@FXML
-	  	void gerenciarAdicoes(ActionEvent event) {
-	  		if (paneCRUDeditar.isVisible()) {
-	  			paneCRUDeditar.setVisible(false);
-	  			paneCRUDadicionar.setVisible(true);
-	  		} else if (paneCRUDexcluir.isVisible()) {
-	  			paneCRUDexcluir.setVisible(false);
-	  			paneCRUDadicionar.setVisible(true);
-	  		} else {
-	  			paneCRUDpesquisar.setVisible(false);
-	  			paneCRUDadicionar.setVisible(true);
-	  		}
+	  	private void gerenciarAdicoes(ActionEvent event) throws IOException {
+	  		openProductWindow();
 	  	}
 
 	  	@FXML
-	  	void gerenciarEditar(ActionEvent event) {
-	  		if (paneCRUDadicionar.isVisible()) {
-	  			paneCRUDadicionar.setVisible(false);
-	  			paneCRUDeditar.setVisible(true);
-	  		} else if (paneCRUDexcluir.isVisible()) {
-	  			paneCRUDexcluir.setVisible(false);
-	  			paneCRUDeditar.setVisible(true);
-	  		} else {
-	  			paneCRUDpesquisar.setVisible(false);
-	  			paneCRUDeditar.setVisible(true);
-	  		}
+	  	private void gerenciarEditar(ActionEvent event) throws IOException {
+	  		openProductWindow();
 	  	}
 
 	  	@FXML
-	  	void gerenciarExcluir(ActionEvent event) {
-	  		if (paneCRUDadicionar.isVisible()) {
-	  			paneCRUDadicionar.setVisible(false);
-	  			paneCRUDexcluir.setVisible(true);
-	  		} else if (paneCRUDeditar.isVisible()) {
-	  			paneCRUDeditar.setVisible(false);
-	  			paneCRUDexcluir.setVisible(true);
-	  		} else {
-	  			paneCRUDpesquisar.setVisible(false);
-	  			paneCRUDexcluir.setVisible(true);
-	  		}
+	  	private void gerenciarExcluir(ActionEvent event) throws IOException {
+	  		openProductWindow();
 	  	}
 
 	  	@FXML
-	  	void gerenciarPesquisa(ActionEvent event) {
-	  		if (paneCRUDadicionar.isVisible()) {
-	  			paneCRUDadicionar.setVisible(false);
-	  			paneCRUDpesquisar.setVisible(true);
-	  		} else if (paneCRUDeditar.isVisible()) {
-	  			paneCRUDeditar.setVisible(false);
-	  			paneCRUDpesquisar.setVisible(true);
-	  		} else {
-	  			paneCRUDexcluir.setVisible(false);
-	  			paneCRUDpesquisar.setVisible(true);
-	  		}
+	  	private void gerenciarPesquisa(ActionEvent event) throws IOException {
+	  		openProductWindow();
 	  	}
 	  	// fim navegação CRUD
 
@@ -223,16 +186,10 @@ public class salesController {
 	        assert btnCRUDpesquisar != null : "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'sales.fxml'.";
 	    	
 	        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'sales.fxml'.";
-	        assert btnConfigPage != null : "fx:id=\"btnConfigPage\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'sales.fxml'.";
-	        
-	        assert paneCRUDadicionar != null : "fx:id=\"paneCRUDadicionar\" was not injected: check your FXML file 'sales.fxml'.";
-	        assert paneCRUDeditar != null : "fx:id=\"paneCRUDeditar\" was not injected: check your FXML file 'sales.fxml'.";
-	        assert paneCRUDexcluir != null : "fx:id=\"paneCRUDexcluir\" was not injected: check your FXML file 'sales.fxml'.";
-	        assert paneCRUDpesquisar != null : "fx:id=\"paneCRUDpesquisar\" was not injected: check your FXML file 'sales.fxml'.";
 
 	    }
 	
