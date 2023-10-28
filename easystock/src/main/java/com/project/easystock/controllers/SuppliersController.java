@@ -41,9 +41,6 @@ public class SuppliersController {
 	// CRUD buttons
 	
 	@FXML
-    private Stage productWindowStage;
-	
-	@FXML
 	private Button btnCRUDadicionar;
 
 	@FXML
@@ -57,16 +54,8 @@ public class SuppliersController {
 
 	// navegação principal
 	
-	private void closeProductWindow() {
-        if (productWindowStage != null) {
-            productWindowStage.close();
-            productWindowStage = null;
-        }
-    }
-	
 	@FXML
 	private void btnOpenClientPage(ActionEvent event) throws IOException {
-		closeProductWindow();
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
@@ -82,7 +71,6 @@ public class SuppliersController {
 
 	@FXML
 	private void btnOpenDashbord(ActionEvent event) throws IOException {
-		closeProductWindow();
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
@@ -98,7 +86,6 @@ public class SuppliersController {
 
 	@FXML
 	private void btnOpenProductPage(ActionEvent event) throws IOException {
-		closeProductWindow();
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
@@ -114,7 +101,6 @@ public class SuppliersController {
 
 	@FXML
 	private void btnOpenRequestPage(ActionEvent event) throws IOException {
-		closeProductWindow();
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();
@@ -130,7 +116,6 @@ public class SuppliersController {
 
 	@FXML
 	private void btnOpenSalesPage(ActionEvent event) throws IOException {
-		closeProductWindow();
 		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stageAtual.close();
 		Stage novoStage = new Stage();

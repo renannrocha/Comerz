@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -42,9 +43,6 @@ public class ProductController {
     // CRUD buttons
     
     @FXML
-    private Stage productWindowStage;
-    
-    @FXML
     private Button btnCRUDadicionar;
 
     @FXML
@@ -56,18 +54,10 @@ public class ProductController {
     @FXML
     private Button btnCRUDpesquisar;
     
-   
-    private void closeProductWindow() {
-        if (productWindowStage != null) {
-            productWindowStage.close();
-            productWindowStage = null;
-        }
-    }
     
     // navegação
     @FXML
     private void btnOpenClientPage(ActionEvent event) throws IOException {
-    	closeProductWindow(); 
     	// Obtém o Stage atual.
         Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         
@@ -94,7 +84,6 @@ public class ProductController {
 
     @FXML
     private void btnOpenDashbord(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -110,7 +99,6 @@ public class ProductController {
 
     @FXML
     private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -126,7 +114,6 @@ public class ProductController {
 
     @FXML
     private void btnOpenRequestPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -142,7 +129,6 @@ public class ProductController {
 
     @FXML
     private void btnOpenSalesPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -158,43 +144,63 @@ public class ProductController {
     // fim navegação
     
     
-    
-    
     // navegação CRUD
 
-    private void openProductWindow() throws IOException {
-        if (productWindowStage != null) {
-            productWindowStage.close();
-        }
-        productWindowStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        productWindowStage.getIcons().add(applicationIcon);
-        productWindowStage.setTitle("EasyStock");
-        productWindowStage.setResizable(false);
-        productWindowStage.setScene(scene);
-        productWindowStage.show();
-    }
-    
+
     @FXML
     private void gerenciarAdicoes(ActionEvent event) throws IOException {
-    	openProductWindow();
+    	Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
     }
 
     @FXML
     private void gerenciarEditar(ActionEvent event) throws IOException {
-    	openProductWindow();
+    	Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
     }
 
     @FXML
     private void gerenciarExcluir(ActionEvent event) throws IOException {
-    	openProductWindow();
+    	Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
     }
 
     @FXML
     private void gerenciarPesquisa(ActionEvent event) throws IOException {
-    	openProductWindow();
+    	Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
     }
     //fim navegação CRUD
 

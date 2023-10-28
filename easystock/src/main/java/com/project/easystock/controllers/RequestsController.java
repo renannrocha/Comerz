@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class RequestsController {
@@ -39,9 +40,6 @@ public class RequestsController {
     
     // CRUD buttons
     
-    @FXML
-    private Stage productWindowStage;
-    
   	@FXML
   	private Button btnCRUDadicionar;
 
@@ -53,17 +51,9 @@ public class RequestsController {
 
   	@FXML
   	private Button btnCRUDpesquisar;
-  	
-  	private void closeProductWindow() {
-        if (productWindowStage != null) {
-            productWindowStage.close();
-            productWindowStage = null;
-        }
-    }
 
     @FXML
     private void btnOpenClientPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -79,7 +69,6 @@ public class RequestsController {
 
     @FXML
     private void btnOpenDashbord(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -95,7 +84,6 @@ public class RequestsController {
 
     @FXML
     private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -111,7 +99,6 @@ public class RequestsController {
 
     @FXML
     private void btnOpenProductPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -127,7 +114,6 @@ public class RequestsController {
 
     @FXML
     private void btnOpenSalesPage(ActionEvent event) throws IOException {
-    	closeProductWindow();
     	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stageAtual.close();
         Stage novoStage = new Stage();
@@ -143,11 +129,9 @@ public class RequestsController {
 
     // navegação CRUD
     
-    private void openProductWindow() throws IOException {
-        if (productWindowStage != null) {
-            productWindowStage.close();
-        }
-        Stage novoStage = new Stage();
+  	@FXML
+  	private void gerenciarAdicoes(ActionEvent event) throws IOException {
+  		Stage novoStage = new Stage();
   		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requestsWindowCRUD.fxml"));
         Scene scene = new Scene(root);
         Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
@@ -155,27 +139,50 @@ public class RequestsController {
         novoStage.setTitle("EasyStock");
         novoStage.setResizable(false);
         novoStage.setScene(scene);
-        novoStage.show();
-    }
-    
-  	@FXML
-  	private void gerenciarAdicoes(ActionEvent event) throws IOException {
-  		openProductWindow();
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
   	}
 
   	@FXML
   	private void gerenciarEditar(ActionEvent event) throws IOException {
-  		openProductWindow();
+  		Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requestsWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
   	}
 
   	@FXML
   	private void gerenciarExcluir(ActionEvent event) throws IOException {
-  		openProductWindow();
+  		Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requestsWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
   	}
 
   	@FXML
   	private void gerenciarPesquisa(ActionEvent event) throws IOException {
-  		openProductWindow();
+  		Stage novoStage = new Stage();
+  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/requestsWindowCRUD.fxml"));
+        Scene scene = new Scene(root);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
+        novoStage.getIcons().add(applicationIcon);
+        novoStage.setTitle("EasyStock");
+        novoStage.setResizable(false);
+        novoStage.setScene(scene);
+        novoStage.initModality(Modality.APPLICATION_MODAL);
+        novoStage.showAndWait();
   	}
   	// fim navegação CRUD
 
