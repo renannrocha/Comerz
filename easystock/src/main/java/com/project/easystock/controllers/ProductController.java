@@ -2,9 +2,13 @@ package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import com.project.easystock.model.Produto;
 import com.project.easystock.dao.ProdutoDao;
@@ -17,7 +21,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.TableView;
@@ -94,6 +97,9 @@ public class ProductController {
     @FXML
     private AnchorPane paneCRUDpesquisar;
     
+    @FXML
+    private AnchorPane confirmationIDAnchorPane;
+    
     // error Text status
     @FXML
     private Text statusAdicao;
@@ -108,8 +114,38 @@ public class ProductController {
     private Text statusPesquisa;
     
     // txt
+    
+    // confirmAnchorpane
+    @FXML
+    private TextField txtAreaIDconfirm;
+    
+    // adicionar
     @FXML
     private TextField txtAreaCategoriaAdicionar;
+    
+    @FXML
+    private TextField txtAreaDimencoesAdicionar;
+    
+    @FXML
+    private TextField txtAreaCodBarrasAdicionar;
+    
+    @FXML
+    private TextField txtAreaFornecedorAdicionar;
+    
+    @FXML
+    private TextField txtAreaIDadicionar;
+    
+    @FXML
+    private TextField txtAreaLocArmazemAdicionar;
+    
+    @FXML
+    private TextField txtAreaNomeAdicionar;
+    
+    @FXML
+    private TextField txtAreaMarcaAdicionar;
+    
+    @FXML
+    private TextField txtAreaPesoAdicionar;
 
     @FXML
     private TextField txtAreaCategoriaEditar;
@@ -118,16 +154,10 @@ public class ProductController {
     private TextField txtAreaCategoriaPesquisa;
 
     @FXML
-    private TextField txtAreaCodBarrasAdicionar;
-
-    @FXML
     private TextField txtAreaCodBarrasEditar;
 
     @FXML
     private TextField txtAreaCodBarrasPesquisa;
-
-    @FXML
-    private TextField txtAreaDimencoesAdicionar;
 
     @FXML
     private TextField txtAreaDimencoesEditar;
@@ -136,16 +166,10 @@ public class ProductController {
     private TextField txtAreaDimencoesPesquisa;
 
     @FXML
-    private TextField txtAreaFornecedorAdicionar;
-
-    @FXML
     private TextField txtAreaFornecedorEditar;
 
     @FXML
     private TextField txtAreaFornecedorPesquisa;
-
-    @FXML
-    private TextField txtAreaIDadicionar;
 
     @FXML
     private TextField txtAreaIDeditar;
@@ -157,16 +181,10 @@ public class ProductController {
     private TextField txtAreaIDpesquisa;
 
     @FXML
-    private TextField txtAreaLocArmazemAdicionar;
-
-    @FXML
     private TextField txtAreaLocArmazemEditar;
 
     @FXML
     private TextField txtAreaLocArmazemPesquisa;
-
-    @FXML
-    private TextField txtAreaMarcaAdicionar;
 
     @FXML
     private TextField txtAreaMarcaEditar;
@@ -175,16 +193,10 @@ public class ProductController {
     private TextField txtAreaMarcaPesquisa;
 
     @FXML
-    private TextField txtAreaNomeAdicionar;
-
-    @FXML
     private TextField txtAreaNomeEditar;
 
     @FXML
     private TextField txtAreaNomePesquisa;
-
-    @FXML
-    private TextField txtAreaPesoAdicionar;
 
     @FXML
     private TextField txtAreaPesoEditar;
@@ -431,13 +443,16 @@ public class ProductController {
 	private void gerenciarEditar(ActionEvent event){
 		if (paneCRUDadicionar.isVisible()) {
  			paneCRUDadicionar.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
  		} else if (paneCRUDexcluir.isVisible()) {
  			paneCRUDexcluir.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
+ 		} else if (paneCRUDeditar.isVisible()){ 
+ 			paneCRUDeditar.setVisible(false);
+ 			confirmationIDAnchorPane.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
  		}
 	}
 
@@ -502,36 +517,190 @@ public class ProductController {
 
     }
     
+    // confirmID Edição
+    @FXML
+    void btnCancelID(ActionEvent event) {
+    	
+    }
+    
+    @FXML
+    void btnConfirmID(ActionEvent event) {
+    	
+    	if (!txtAreaIDconfirm.getText().isEmpty()) {
+	        Long id = Long.parseLong(txtAreaIDconfirm.getText());
+	        //ProdutoDao produtoDao = new ProdutoDao();
+	        //Produto produto = produtoDao.buscarProdutoPorId(id);
+	        Produto produto = tableProdutos.getItems().stream().filter(p-> p.getId() == id).collect(Collectors.toList()).get(0);
+	        
+	        confirmationIDAnchorPane.setVisible(false);
+	        paneCRUDeditar.setVisible(true);
+	        
+	        if (produto != null) {
+	            // Preencha os campos na paneCRUDeditar com as informações do produto
+	            txtAreaNomeEditar.setText(produto.getNome());
+	            txtAreaCategoriaEditar.setText(produto.getCategoria());
+	            txtAreaPrecoVendaEditar.setText(String.valueOf(produto.getPrecoVenda()));
+	            txtAreaPrecoCustoEditar.setText(String.valueOf(produto.getPrecoCusto()));
+	            txtAreaQtdEstoqueEditar.setText(String.valueOf(produto.getQuantidadeEstoque()));
+	            txtAreaFornecedorEditar.setText(produto.getFornecedor());
+	            if (produto.getDataEntrada() != null) {
+	                dtaAreaDtaEntradaEditar.setValue(produto.getDataEntrada().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+	            }
+	            txtAreaLocArmazemEditar.setText(produto.getLocalizacao());
+	            txtAreaCodBarrasEditar.setText(produto.getCodigoBarras());
+	            txtAreaPesoEditar.setText(String.valueOf(produto.getPeso()));
+	            txtAreaDimencoesEditar.setText(produto.getDimensoes());
+	            txtAreaSTSprodutoEditar.setText(produto.getStatusProduto());
+	            txtAreaSKUeditar.setText(produto.getSku());
+	            txtAreaMarcaEditar.setText(produto.getMarca());
+	            }
+	        }
+    }
+    
     // AnchorPane buttons Exclusão
     @FXML
     void btnAplicarExclusao(ActionEvent event) {
+    	if (!txtAreaIDpesquisa.getText().isEmpty()) {
+            Long id = Long.parseLong(txtAreaIDpesquisa.getText());
 
+            ProdutoDao produtoDao = new ProdutoDao();
+            boolean resultado = produtoDao.deletarProduto(id);
+            
+            if (!resultado) {
+                txtAreaIDpesquisa.clear();
+                statusExclusao.setVisible(true);
+            }
+    	}
+            
     }
     
     @FXML
     void btnCancelarExcusao(ActionEvent event) {
-
+    	txtAreaIDpesquisa.clear();
+    	txtAreaIDpesquisa.setVisible(false);
     }
     
     @FXML
     void btnLimparExclusao(ActionEvent event) {
-
+    	txtAreaIDpesquisa.clear();
     }
     
     // AnchorPane buttons Pesquisa
     @FXML
     void btnAplicarPesquisa(ActionEvent event) {
+    	Produto produto = new Produto();
+        
+        if (!txtAreaIDpesquisa.getText().isEmpty()) {
+            produto.setId(Long.parseLong(txtAreaIDpesquisa.getText()));
+        }
+        
+        if (!txtAreaNomePesquisa.getText().isEmpty()) {
+            produto.setNome(txtAreaNomePesquisa.getText());
+        }
+        
+        if (!txtAreaCategoriaPesquisa.getText().isEmpty()) {
+            produto.setCategoria(txtAreaCategoriaPesquisa.getText());
+        }
+        
+        if (!txtAreaCodBarrasPesquisa.getText().isEmpty()) {
+            produto.setCodigoBarras(txtAreaCodBarrasPesquisa.getText());
+        }
+        
+        if (!txtAreaDimencoesPesquisa.getText().isEmpty()) {
+            produto.setDimensoes(txtAreaDimencoesPesquisa.getText());
+        }
+        
+        if (!txtAreaFornecedorPesquisa.getText().isEmpty()) {
+            produto.setFornecedor(txtAreaFornecedorPesquisa.getText());
+        }
+        
+        if (!txtAreaLocArmazemPesquisa.getText().isEmpty()) {
+            produto.setLocalizacao(txtAreaLocArmazemPesquisa.getText());
+        }
+        
+        if (!txtAreaMarcaPesquisa.getText().isEmpty()) {
+            produto.setMarca(txtAreaMarcaPesquisa.getText());
+        }
+        
+        if (!txtAreaPesoPesquisa.getText().isEmpty()) {
+            produto.setPeso(Double.parseDouble(txtAreaPesoPesquisa.getText()));
+        }
+        
+        if (!txtAreaPrecoCustoPesquisa.getText().isEmpty()) {
+            produto.setPrecoCusto(Double.parseDouble(txtAreaPrecoCustoPesquisa.getText()));
+        }
+        
+        if (!txtAreaPrecoVendaPesquisa.getText().isEmpty()) {
+            produto.setPrecoVenda(Double.parseDouble(txtAreaPrecoVendaPesquisa.getText()));
+        }
+        
+        if (!txtAreaQtdEstoquePesquisa.getText().isEmpty()) {
+            produto.setQuantidadeEstoque(Integer.parseInt(txtAreaQtdEstoquePesquisa.getText()));
+        }
+        
+        if (!txtAreaSTSprodutoPesquisa.getText().isEmpty()) {
+            produto.setStatusProduto(txtAreaSTSprodutoPesquisa.getText());
+        }
+        
+        if (!txtAreaSKUPesquisa.getText().isEmpty()) {
+            produto.setSku(txtAreaSKUPesquisa.getText());
+        }
 
+        if (dtaAreaDtaEntradaPesquisa.getValue() != null) {
+            LocalDate localDate = dtaAreaDtaEntradaPesquisa.getValue();
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            produto.setDataEntrada(date);
+        }
+
+        // Chama a função buscarProdutos e atualiza a TableView com os resultados
+        ProdutoDao produtoDao = new ProdutoDao();
+        List<Produto> produtos = produtoDao.buscarProdutos(produto);
+
+        // Converte a lista de produtos para um ObservableList
+        ObservableList<Produto> produtosObservable = FXCollections.observableArrayList(produtos);
+
+        // Define os itens da TableView
+        tableProdutos.setItems(produtosObservable);
     }
  
     @FXML
     void btnCancelarPesquisa(ActionEvent event) {
-
+    	txtAreaCategoriaPesquisa.clear();
+        txtAreaCodBarrasPesquisa.clear();
+        txtAreaDimencoesPesquisa.clear();
+        txtAreaFornecedorPesquisa.clear();
+        txtAreaIDpesquisa.clear();
+        txtAreaLocArmazemPesquisa.clear();
+        txtAreaMarcaPesquisa.clear();
+        txtAreaNomePesquisa.clear();
+        txtAreaPesoPesquisa.clear();
+        txtAreaPrecoCustoPesquisa.clear();
+        txtAreaPrecoVendaPesquisa.clear();
+        txtAreaQtdEstoquePesquisa.clear();
+        txtAreaSKUPesquisa.clear();
+        txtAreaSTSprodutoPesquisa.clear();
+        dtaAreaDtaEntradaPesquisa.setValue(null);
+        paneCRUDpesquisar.setVisible(false);
     }
 
     @FXML
     void btnLimparPesquisa(ActionEvent event) {
-
+    	txtAreaCategoriaPesquisa.clear();
+        txtAreaCodBarrasPesquisa.clear();
+        txtAreaDimencoesPesquisa.clear();
+        txtAreaFornecedorPesquisa.clear();
+        txtAreaIDpesquisa.clear();
+        txtAreaLocArmazemPesquisa.clear();
+        txtAreaMarcaPesquisa.clear();
+        txtAreaNomePesquisa.clear();
+        txtAreaPesoPesquisa.clear();
+        txtAreaPrecoCustoPesquisa.clear();
+        txtAreaPrecoVendaPesquisa.clear();
+        txtAreaQtdEstoquePesquisa.clear();
+        txtAreaSKUPesquisa.clear();
+        txtAreaSTSprodutoPesquisa.clear();
+        dtaAreaDtaEntradaPesquisa.setValue(null);
     }
 
 	@FXML

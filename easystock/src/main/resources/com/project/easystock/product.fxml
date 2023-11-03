@@ -242,6 +242,19 @@
                   </Text>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="confirmationIDAnchorPane" layoutX="363.0" prefHeight="233.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forneça a identificação (ID):">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaIDconfirm" layoutX="33.0" layoutY="64.0" prefHeight="25.0" prefWidth="58.0" />
+                  <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnConfirmID" text="Confirmar" />
+                  <Button layoutX="888.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnCancelID" text="Cancelar" />
+               </children>
+            </AnchorPane>
          </children>
       </Pane>
       <ScrollPane layoutY="61.0" prefHeight="651.0" prefWidth="1400.0">
