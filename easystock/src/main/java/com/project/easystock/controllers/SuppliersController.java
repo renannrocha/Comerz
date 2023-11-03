@@ -2,7 +2,12 @@ package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,10 +15,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import com.project.easystock.dao.FornecedorDao;
+import com.project.easystock.model.Fornecedor;
 
 public class SuppliersController {
 
@@ -51,6 +60,10 @@ public class SuppliersController {
 
 	@FXML
 	private Button btnCRUDpesquisar;
+	
+	// table 
+	@FXML
+    private TableView<Fornecedor> tableFornecedor;
 
 	// navegação principal
 	
@@ -131,67 +144,83 @@ public class SuppliersController {
 	// fim navegação principal
 
 	// navegação CRUD
-	
+	public void preencherTableView() {
+	    // Obtém a lista de produtos
+	    FornecedorDao fornecedorDao = new FornecedorDao();
+	    List<Fornecedor> fornecedor = fornecedorDao.listarFornecedores();
+
+	    // Cria as colunas da tabela e define o valor de exibição baseado nos campos do Produto
+	    TableColumn<Fornecedor, Integer> colunaId = new TableColumn<>("ID");
+	    colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+	    TableColumn<Fornecedor, String> colunaNome = new TableColumn<>("Nome");
+	    colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+
+	    TableColumn<Fornecedor, String> colunaTipo = new TableColumn<>("Tipo");
+	    colunaTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+
+	    TableColumn<Fornecedor, String> colunaTelefone = new TableColumn<>("Telefone");
+	    colunaTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+
+	    TableColumn<Fornecedor, String> colunaEmail = new TableColumn<>("Email");
+	    colunaEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+	    TableColumn<Fornecedor, String> colunaProdutos = new TableColumn<>("Produtos");
+	    colunaProdutos.setCellValueFactory(new PropertyValueFactory<>("produtos"));
+
+	    TableColumn<Fornecedor, String> colunaTempoEntrega = new TableColumn<>("Tempo de Entrega");
+	    colunaTempoEntrega.setCellValueFactory(new PropertyValueFactory<>("tempoEntrega"));
+
+	    TableColumn<Fornecedor, String> colunaCnpj = new TableColumn<>("CNPJ");
+	    colunaCnpj.setCellValueFactory(new PropertyValueFactory<>("cnpj"));
+
+	    TableColumn<Fornecedor, String> colunaMetodoEnvio = new TableColumn<>("Método de Envio");
+	    colunaMetodoEnvio.setCellValueFactory(new PropertyValueFactory<>("metodoEnvio"));
+
+	    // Adiciona as colunas à TableView
+	    tableFornecedor.getColumns().add(colunaId);
+	    tableFornecedor.getColumns().add(colunaNome);
+	    tableFornecedor.getColumns().add(colunaTipo);
+	    tableFornecedor.getColumns().add(colunaTelefone);
+	    tableFornecedor.getColumns().add(colunaEmail);
+	    tableFornecedor.getColumns().add(colunaProdutos);
+	    tableFornecedor.getColumns().add(colunaTempoEntrega);
+	    tableFornecedor.getColumns().add(colunaCnpj);
+	    tableFornecedor.getColumns().add(colunaMetodoEnvio);
+
+	    // Converte a lista de produtos para um ObservableList
+	    ObservableList<Fornecedor> fornecedoresObservable = FXCollections.observableArrayList(fornecedor);
+
+	    // Define os itens da TableView
+	    tableFornecedor.setItems(fornecedoresObservable);
+	}
+
 	
 	@FXML
 	private void gerenciarAdicoes(ActionEvent event) throws IOException {
-		Stage novoStage = new Stage();
-  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/suppliersWindowCRUD.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        novoStage.getIcons().add(applicationIcon);
-        novoStage.setTitle("EasyStock");
-        novoStage.setResizable(false);
-        novoStage.setScene(scene);
-        novoStage.initModality(Modality.APPLICATION_MODAL);
-        novoStage.showAndWait();
+		
 	}
 
 	@FXML
 	private void gerenciarEditar(ActionEvent event) throws IOException {
-		Stage novoStage = new Stage();
-  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/suppliersWindowCRUD.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        novoStage.getIcons().add(applicationIcon);
-        novoStage.setTitle("EasyStock");
-        novoStage.setResizable(false);
-        novoStage.setScene(scene);
-        novoStage.initModality(Modality.APPLICATION_MODAL);
-        novoStage.showAndWait();
+		
 	}
 
 	@FXML
 	private void gerenciarExcluir(ActionEvent event) throws IOException {
-		Stage novoStage = new Stage();
-  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/suppliersWindowCRUD.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        novoStage.getIcons().add(applicationIcon);
-        novoStage.setTitle("EasyStock");
-        novoStage.setResizable(false);
-        novoStage.setScene(scene);
-        novoStage.initModality(Modality.APPLICATION_MODAL);
-        novoStage.showAndWait();
+		
 	}
 
 	@FXML
 	private void gerenciarPesquisa(ActionEvent event) throws IOException {
-		Stage novoStage = new Stage();
-  		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/suppliersWindowCRUD.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        novoStage.getIcons().add(applicationIcon);
-        novoStage.setTitle("EasyStock");
-        novoStage.setResizable(false);
-        novoStage.setScene(scene);
-        novoStage.initModality(Modality.APPLICATION_MODAL);
-        novoStage.showAndWait();
+		
 	}
 	// fim navegação CRUD
 
 	@FXML
 	void initialize() {
+		preencherTableView();
+		
 		assert btnClientpage != null
 				: "fx:id=\"btnClientpage\" was not injected: check your FXML file 'suppliers.fxml'.";
 		assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'suppliers.fxml'.";
@@ -209,6 +238,8 @@ public class SuppliersController {
 				: "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'suppliers.fxml'.";
 		assert btnCRUDpesquisar != null
 				: "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'suppliers.fxml'.";
+		
+		assert tableFornecedor != null : "fx:id=\"tableFornecedor\" was not injected: check your FXML file 'suppliers.fxml'.";
 
 	}
 

@@ -5,39 +5,38 @@ import java.io.Serializable;
 public class Fornecedor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Long id;
-	private String nome;
-	private String tipo;
-	private String telefone;
-	private String email;
-	private String prodFornecidos;
-	private String tempoEntrega;
-	private String cnpj;
-	private String metodoEnvio;
-	
-	public Fornecedor(Long id, String nome, String tipo, String telefone, String email, String prodFornecidos,
+	private int id;
+    private String nome;
+    private String tipo;
+    private String telefone;
+    private String email;
+    private String produtos;
+    private String tempoEntrega;
+    private String cnpj;
+    private String metodoEnvio;
+    
+	public Fornecedor(int id, String nome, String tipo, String telefone, String email, String produtos,
 			String tempoEntrega, String cnpj, String metodoEnvio) {
-		
+
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.telefone = telefone;
 		this.email = email;
-		this.prodFornecidos = prodFornecidos;
+		this.produtos = produtos;
 		this.tempoEntrega = tempoEntrega;
 		this.cnpj = cnpj;
 		this.metodoEnvio = metodoEnvio;
-		
 	}
 	
 	public Fornecedor() {
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -73,12 +72,12 @@ public class Fornecedor implements Serializable {
 		this.email = email;
 	}
 
-	public String getProdFornecidos() {
-		return prodFornecidos;
+	public String getProdutos() {
+		return produtos;
 	}
 
-	public void setProdFornecidos(String prodFornecidos) {
-		this.prodFornecidos = prodFornecidos;
+	public void setProdutos(String produtos) {
+		this.produtos = produtos;
 	}
 
 	public String getTempoEntrega() {
@@ -105,5 +104,4 @@ public class Fornecedor implements Serializable {
 		this.metodoEnvio = metodoEnvio;
 	}
 	
-
 }

@@ -1,34 +1,31 @@
 package com.project.easystock.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Produto implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-    private Long id;
-    private String nome;
-    private String categoria;
-    private Double precoVenda;
-    private Double precoCusto;
-    private Integer quantidadeEstoque;
-    private String fornecedor;
-    private String dataEntrada; //justar date
-    private String dataValidade; // ajustar date
-    private String LocArmazem;
-    private String codBarras;
-    private String Peso;
-    private String dimensoes;
-    private String statusProduto;
-    private String sku;
-    private String statusPedido;
-    private String dataPedido; // ajustar date
-    
-    
+	private Long id;
+	private String nome;
+	private String categoria;
+	private Double precoVenda;
+	private Double precoCusto;
+	private Integer quantidadeEstoque;
+	private String fornecedor;
+	private Date dataEntrada; // ajustado para Date
+	
+	private String localizacao;
+	private String codigoBarras;
+	private Double peso; // ajustado para Double
+	private String dimensoes;
+	private String statusProduto;
+	private String sku;
+	private String marca;
 	public Produto(Long id, String nome, String categoria, Double precoVenda, Double precoCusto,
-			Integer quantidadeEstoque, String fornecedor, String dataEntrada, String dataValidade, String locArmazem,
-			String codBarras, String peso, String dimensoes, String statusProduto, String sku, String statusPedido,
-			String dataPedido) {
-		
+			Integer quantidadeEstoque, String fornecedor, Date dataEntrada, String localizacao, String codigoBarras,
+			Double peso, String dimensoes, String statusProduto, String sku, String marca) {
+
 		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
@@ -37,15 +34,13 @@ public class Produto implements Serializable {
 		this.quantidadeEstoque = quantidadeEstoque;
 		this.fornecedor = fornecedor;
 		this.dataEntrada = dataEntrada;
-		this.dataValidade = dataValidade;
-		LocArmazem = locArmazem;
-		this.codBarras = codBarras;
-		Peso = peso;
+		this.localizacao = localizacao;
+		this.codigoBarras = codigoBarras;
+		this.peso = peso;
 		this.dimensoes = dimensoes;
 		this.statusProduto = statusProduto;
 		this.sku = sku;
-		this.statusPedido = statusPedido;
-		this.dataPedido = dataPedido;
+		this.marca = marca;
 	}
 	
 	public Produto() {
@@ -108,44 +103,36 @@ public class Produto implements Serializable {
 		this.fornecedor = fornecedor;
 	}
 
-	public String getDataEntrada() {
+	public Date getDataEntrada() {
 		return dataEntrada;
 	}
 
-	public void setDataEntrada(String dataEntrada) {
+	public void setDataEntrada(Date dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
 
-	public String getDataValidade() {
-		return dataValidade;
+	public String getLocalizacao() {
+		return localizacao;
 	}
 
-	public void setDataValidade(String dataValidade) {
-		this.dataValidade = dataValidade;
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
 	}
 
-	public String getLocArmazem() {
-		return LocArmazem;
+	public String getCodigoBarras() {
+		return codigoBarras;
 	}
 
-	public void setLocArmazem(String locArmazem) {
-		LocArmazem = locArmazem;
+	public void setCodigoBarras(String codigoBarras) {
+		this.codigoBarras = codigoBarras;
 	}
 
-	public String getCodBarras() {
-		return codBarras;
+	public Double getPeso() {
+		return peso;
 	}
 
-	public void setCodBarras(String codBarras) {
-		this.codBarras = codBarras;
-	}
-
-	public String getPeso() {
-		return Peso;
-	}
-
-	public void setPeso(String peso) {
-		Peso = peso;
+	public void setPeso(Double peso) {
+		this.peso = peso;
 	}
 
 	public String getDimensoes() {
@@ -172,20 +159,14 @@ public class Produto implements Serializable {
 		this.sku = sku;
 	}
 
-	public String getStatusPedido() {
-		return statusPedido;
+	public String getMarca() {
+		return marca;
 	}
 
-	public void setStatusPedido(String statusPedido) {
-		this.statusPedido = statusPedido;
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
-
-	public String getDataPedido() {
-		return dataPedido;
-	}
-
-	public void setDataPedido(String dataPedido) {
-		this.dataPedido = dataPedido;
-	}
-    
+	
+	
+	
 }

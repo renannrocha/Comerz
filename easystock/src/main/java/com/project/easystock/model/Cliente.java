@@ -5,37 +5,35 @@ import java.io.Serializable;
 public class Cliente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Long id;
-	private String nome;
-	private String tipo;
-	private String endereco;
-	private String cpf_cnpj;
-	private String contato;
-	private String statusPedido;
-	private String statusCliente;
-	
-	public Cliente(Long id, String nome, String tipo, String endereco, String cpf_cnpj, String contato,
+	private int id;
+    private String nome;
+    private String tipo;
+    private String endereco;
+    private String cpfCnpj;
+    private String contato;
+    private String statusPedido;
+    private String statusCliente;
+    
+	public Cliente(int id, String nome, String tipo, String endereco, String cpfCnpj, String contato,
 			String statusPedido, String statusCliente) {
-
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.endereco = endereco;
-		this.cpf_cnpj = cpf_cnpj;
+		this.cpfCnpj = cpfCnpj;
 		this.contato = contato;
 		this.statusPedido = statusPedido;
 		this.statusCliente = statusCliente;
-		
 	}
 	
-	public Cliente(){
+	public Cliente() {
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -63,12 +61,12 @@ public class Cliente implements Serializable {
 		this.endereco = endereco;
 	}
 
-	public String getCpf_cnpj() {
-		return cpf_cnpj;
+	public String getCpfCnpj() {
+		return cpfCnpj;
 	}
 
-	public void setCpf_cnpj(String cpf_cnpj) {
-		this.cpf_cnpj = cpf_cnpj;
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
 	}
 
 	public String getContato() {
@@ -94,5 +92,5 @@ public class Cliente implements Serializable {
 	public void setStatusCliente(String statusCliente) {
 		this.statusCliente = statusCliente;
 	}
-		
+	
 }

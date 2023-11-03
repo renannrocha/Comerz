@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="267.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.deleteWindowController">
+   <children>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o ID">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtAreaID" layoutX="99.0" layoutY="22.0" prefHeight="25.0" prefWidth="157.0" />
+      <Text fx:id="textErrorStatus" fill="RED" layoutX="90.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="erro : o id fornecido não existe" visible="false" />
+      <Button fx:id="btnConfirmarAcao" layoutX="187.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnConfirmarAcao" text="Confirmar" />
+      <Button fx:id="btnCancelarAcao" layoutX="116.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnCancelarAcao" text="Cancelar" />
+   </children>
+</Pane>

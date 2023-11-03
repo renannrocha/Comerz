@@ -1,103 +1,104 @@
 package com.project.easystock.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Pedido implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Long id;
-	private Long idCliente;
-	private Long idProduto;
-	private String dtaPedido; // ajustar date
-	private String dtaEntregaEx; // ajustar date
-	private String dtaEntregaReal; // ajustar date
-	private Integer quantidade;
-	private String statusPedido;
-	private Double precoUnitario;
-	private Double TotalPedido;
-	private String enderecoEntrega;
-	private Double custoEnvio;
-	private String statusPag;
-	private String metodEnvio;
-	private String codRastreio;
-	
-	public Pedido(Long id, Long idCliente, Long idProduto, String dtaPedido, String dtaEntregaEx, String dtaEntregaReal,
-			Integer quantidade, String statusPedido, Double precoUnitario, Double totalPedido, String enderecoEntrega,
-			Double custoEnvio, String statusPag, String metodEnvio, String codRastreio) {
-		
+	private int id;
+    private int idCliente;
+    private int idProduto;
+    private Date dataPedido;
+    private Date dataEntregaEstimada;
+    private Date dataEntregaReal;
+    private int quantidade;
+    private String statusPedido;
+    private double precoUnitario;
+    private double totalPedido;
+    private String enderecoEntrega;
+    private double custoEnvio;
+    private String statusPagamento;
+    private String metodoEnvio;
+    private String codigoRastreio;
+    
+	public Pedido(int id, int idCliente, int idProduto, Date dataPedido, Date dataEntregaEstimada, Date dataEntregaReal,
+			int quantidade, String statusPedido, double precoUnitario, double totalPedido, String enderecoEntrega,
+			double custoEnvio, String statusPagamento, String metodoEnvio, String codigoRastreio) {
+
 		this.id = id;
 		this.idCliente = idCliente;
 		this.idProduto = idProduto;
-		this.dtaPedido = dtaPedido;
-		this.dtaEntregaEx = dtaEntregaEx;
-		this.dtaEntregaReal = dtaEntregaReal;
+		this.dataPedido = dataPedido;
+		this.dataEntregaEstimada = dataEntregaEstimada;
+		this.dataEntregaReal = dataEntregaReal;
 		this.quantidade = quantidade;
 		this.statusPedido = statusPedido;
 		this.precoUnitario = precoUnitario;
-		TotalPedido = totalPedido;
+		this.totalPedido = totalPedido;
 		this.enderecoEntrega = enderecoEntrega;
 		this.custoEnvio = custoEnvio;
-		this.statusPag = statusPag;
-		this.metodEnvio = metodEnvio;
-		this.codRastreio = codRastreio;
+		this.statusPagamento = statusPagamento;
+		this.metodoEnvio = metodoEnvio;
+		this.codigoRastreio = codigoRastreio;
 	}
 	
 	public Pedido() {
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Long getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(Long idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 
-	public Long getIdProduto() {
+	public int getIdProduto() {
 		return idProduto;
 	}
 
-	public void setIdProduto(Long idProduto) {
+	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
 	}
 
-	public String getDtaPedido() {
-		return dtaPedido;
+	public Date getDataPedido() {
+		return dataPedido;
 	}
 
-	public void setDtaPedido(String dtaPedido) {
-		this.dtaPedido = dtaPedido;
+	public void setDataPedido(Date dataPedido) {
+		this.dataPedido = dataPedido;
 	}
 
-	public String getDtaEntregaEx() {
-		return dtaEntregaEx;
+	public Date getDataEntregaEstimada() {
+		return dataEntregaEstimada;
 	}
 
-	public void setDtaEntregaEx(String dtaEntregaEx) {
-		this.dtaEntregaEx = dtaEntregaEx;
+	public void setDataEntregaEstimada(Date dataEntregaEstimada) {
+		this.dataEntregaEstimada = dataEntregaEstimada;
 	}
 
-	public String getDtaEntregaReal() {
-		return dtaEntregaReal;
+	public Date getDataEntregaReal() {
+		return dataEntregaReal;
 	}
 
-	public void setDtaEntregaReal(String dtaEntregaReal) {
-		this.dtaEntregaReal = dtaEntregaReal;
+	public void setDataEntregaReal(Date dataEntregaReal) {
+		this.dataEntregaReal = dataEntregaReal;
 	}
 
-	public Integer getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Integer quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -109,20 +110,20 @@ public class Pedido implements Serializable {
 		this.statusPedido = statusPedido;
 	}
 
-	public Double getPrecoUnitario() {
+	public double getPrecoUnitario() {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(Double precoUnitario) {
+	public void setPrecoUnitario(double precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
 
-	public Double getTotalPedido() {
-		return TotalPedido;
+	public double getTotalPedido() {
+		return totalPedido;
 	}
 
-	public void setTotalPedido(Double totalPedido) {
-		TotalPedido = totalPedido;
+	public void setTotalPedido(double totalPedido) {
+		this.totalPedido = totalPedido;
 	}
 
 	public String getEnderecoEntrega() {
@@ -133,36 +134,37 @@ public class Pedido implements Serializable {
 		this.enderecoEntrega = enderecoEntrega;
 	}
 
-	public Double getCustoEnvio() {
+	public double getCustoEnvio() {
 		return custoEnvio;
 	}
 
-	public void setCustoEnvio(Double custoEnvio) {
+	public void setCustoEnvio(double custoEnvio) {
 		this.custoEnvio = custoEnvio;
 	}
 
-	public String getStatusPag() {
-		return statusPag;
+	public String getStatusPagamento() {
+		return statusPagamento;
 	}
 
-	public void setStatusPag(String statusPag) {
-		this.statusPag = statusPag;
+	public void setStatusPagamento(String statusPagamento) {
+		this.statusPagamento = statusPagamento;
 	}
 
-	public String getMetodEnvio() {
-		return metodEnvio;
+	public String getMetodoEnvio() {
+		return metodoEnvio;
 	}
 
-	public void setMetodEnvio(String metodEnvio) {
-		this.metodEnvio = metodEnvio;
+	public void setMetodoEnvio(String metodoEnvio) {
+		this.metodoEnvio = metodoEnvio;
 	}
 
-	public String getCodRastreio() {
-		return codRastreio;
+	public String getCodigoRastreio() {
+		return codigoRastreio;
 	}
 
-	public void setCodRastreio(String codRastreio) {
-		this.codRastreio = codRastreio;
+	public void setCodigoRastreio(String codigoRastreio) {
+		this.codigoRastreio = codigoRastreio;
 	}
+	
 	
 }

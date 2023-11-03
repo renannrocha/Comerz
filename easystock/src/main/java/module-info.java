@@ -11,6 +11,9 @@ module com.project.easystock {
     exports com.project.easystock.controllers;
     
     opens com.project.easystock.model to javafx.fxml;
+    exports com.project.easystock.model;
     opens com.project.easystock.dao to javafx.fxml;
+    exports com.project.easystock.dao;
     opens com.project.easystock.utils to javafx.fxml;
+    exports com.project.easystock.utils;
 }

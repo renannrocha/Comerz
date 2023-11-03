@@ -78,9 +78,9 @@
       </Pane>
       <ScrollPane layoutY="61.0" prefHeight="651.0" prefWidth="1400.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1385.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1400.0">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="773.0" prefWidth="1360.0" />
+                  <TableView fx:id="tableProdutos" layoutX="14.0" layoutY="14.0" maxHeight="773.0" maxWidth="1390.0" minHeight="773.0" minWidth="1390.0" prefHeight="773.0" prefWidth="1390.0" />
                </children>
             </AnchorPane>
          </content>

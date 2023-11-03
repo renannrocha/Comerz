@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 public class ProductWindowCRUDcontroller {
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -29,16 +30,10 @@ public class ProductWindowCRUDcontroller {
     private DatePicker dtaAreaDtaEntrada;
 
     @FXML
-    private DatePicker dtaAreaDtaValidade;
-
-    @FXML
     private TextField txtAreaCategoria;
 
     @FXML
     private TextField txtAreaCodBarras;
-
-    @FXML
-    private TextField txtAreaDescDetalhada;
 
     @FXML
     private TextField txtAreaDimencoes;
@@ -71,13 +66,7 @@ public class ProductWindowCRUDcontroller {
     private TextField txtAreaQtdEstoque;
 
     @FXML
-    private TextField txtAreaQtdMinima;
-
-    @FXML
     private TextField txtAreaSKU;
-
-    @FXML
-    private TextField txtAreaSTSpedido;
 
     @FXML
     private TextField txtAreaSTSproduto;
@@ -102,13 +91,9 @@ public class ProductWindowCRUDcontroller {
         assert btnAplicar != null : "fx:id=\"btnAplicar\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert btnCancelar != null : "fx:id=\"btnCancelar\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert btnLimpar != null : "fx:id=\"btnLimpar\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        
         assert dtaAreaDtaEntrada != null : "fx:id=\"dtaAreaDtaEntrada\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        assert dtaAreaDtaValidade != null : "fx:id=\"dtaAreaDtaValidade\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        
         assert txtAreaCategoria != null : "fx:id=\"txtAreaCategoria\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaCodBarras != null : "fx:id=\"txtAreaCodBarras\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        assert txtAreaDescDetalhada != null : "fx:id=\"txtAreaDescDetalhada\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaDimencoes != null : "fx:id=\"txtAreaDimencoes\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaFornecedor != null : "fx:id=\"txtAreaFornecedor\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaID != null : "fx:id=\"txtAreaID\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
@@ -119,9 +104,7 @@ public class ProductWindowCRUDcontroller {
         assert txtAreaPrecoCusto != null : "fx:id=\"txtAreaPrecoCusto\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaPrecoVenda != null : "fx:id=\"txtAreaPrecoVenda\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaQtdEstoque != null : "fx:id=\"txtAreaQtdEstoque\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        assert txtAreaQtdMinima != null : "fx:id=\"txtAreaQtdMinima\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaSKU != null : "fx:id=\"txtAreaSKU\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
-        assert txtAreaSTSpedido != null : "fx:id=\"txtAreaSTSpedido\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
         assert txtAreaSTSproduto != null : "fx:id=\"txtAreaSTSproduto\" was not injected: check your FXML file 'productWindowCRUD.fxml'.";
 
     }
