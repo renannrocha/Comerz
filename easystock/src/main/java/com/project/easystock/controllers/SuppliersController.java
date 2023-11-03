@@ -2,7 +2,6 @@ package com.project.easystock.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -19,6 +18,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import com.project.easystock.dao.FornecedorDao;
@@ -64,6 +66,118 @@ public class SuppliersController {
 	// table 
 	@FXML
     private TableView<Fornecedor> tableFornecedor;
+	
+	// panes
+	@FXML
+	private AnchorPane paneCRUDadicionar;
+
+	@FXML
+	private AnchorPane paneCRUDeditar;
+
+	@FXML
+	private AnchorPane paneCRUDexcluir;
+
+	@FXML
+	private AnchorPane paneCRUDpesquisar;
+	
+	// text
+	@FXML
+	private Text statusAdicao;
+
+	@FXML
+	private Text statusEdicao;
+
+	@FXML
+	private Text statusExclusao;
+
+	@FXML
+	private Text statusPesquisa;
+	
+	// text field
+	
+	@FXML
+    private TextField txtAreaCNPJEditar;
+
+    @FXML
+    private TextField txtAreaCNPJPesquisa;
+
+    @FXML
+    private TextField txtAreaCNPJadicionar;
+
+    @FXML
+    private TextField txtAreaEmailAdicionar;
+
+    @FXML
+    private TextField txtAreaEmailEditar;
+
+    @FXML
+    private TextField txtAreaEmailPesquisa;
+
+    @FXML
+    private TextField txtAreaExcluir;
+
+    @FXML
+    private TextField txtAreaIDadicionar;
+
+    @FXML
+    private TextField txtAreaIDeditar;
+
+    @FXML
+    private TextField txtAreaIDpesquisa;
+
+    @FXML
+    private TextField txtAreaMtdEnvioAdicionar;
+
+    @FXML
+    private TextField txtAreaMtdEnvioEditar;
+
+    @FXML
+    private TextField txtAreaMtdEnvioPesquisa;
+
+    @FXML
+    private TextField txtAreaNomeAdicionar;
+
+    @FXML
+    private TextField txtAreaNomeEditar;
+
+    @FXML
+    private TextField txtAreaNomePesquisa;
+
+    @FXML
+    private TextField txtAreaProdFornecidosAdicionar;
+
+    @FXML
+    private TextField txtAreaProdFornecidosEditar;
+
+    @FXML
+    private TextField txtAreaProdFornecidosPesquisa;
+
+    @FXML
+    private TextField txtAreaTelefoneAdicionar;
+
+    @FXML
+    private TextField txtAreaTelefoneEditar;
+
+    @FXML
+    private TextField txtAreaTelefonePesquisa;
+
+    @FXML
+    private TextField txtAreaTipoAdicionar;
+
+    @FXML
+    private TextField txtAreaTipoEditar;
+
+    @FXML
+    private TextField txtAreaTipoPesquisa;
+
+    @FXML
+    private TextField txtAreaTpEntregaAdicionar;
+
+    @FXML
+    private TextField txtAreaTpEntregaEditar;
+
+    @FXML
+    private TextField txtAreaTpEntregaPesquisa;
 
 	// navegação principal
 	
@@ -197,49 +311,173 @@ public class SuppliersController {
 
 	
 	@FXML
-	private void gerenciarAdicoes(ActionEvent event) throws IOException {
-		
+	private void gerenciarAdicoes(ActionEvent event){
+		if (paneCRUDeditar.isVisible()) {
+ 			paneCRUDeditar.setVisible(false);
+ 			paneCRUDadicionar.setVisible(true);
+ 		} else if (paneCRUDexcluir.isVisible()) {
+ 			paneCRUDexcluir.setVisible(false);
+ 			paneCRUDadicionar.setVisible(true);
+ 		} else {
+ 			paneCRUDpesquisar.setVisible(false);
+ 			paneCRUDadicionar.setVisible(true);
+ 		}
 	}
 
 	@FXML
-	private void gerenciarEditar(ActionEvent event) throws IOException {
-		
+	private void gerenciarEditar(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
+ 			paneCRUDadicionar.setVisible(false);
+ 			paneCRUDeditar.setVisible(true);
+ 		} else if (paneCRUDexcluir.isVisible()) {
+ 			paneCRUDexcluir.setVisible(false);
+ 			paneCRUDeditar.setVisible(true);
+ 		} else {
+ 			paneCRUDpesquisar.setVisible(false);
+ 			paneCRUDeditar.setVisible(true);
+ 		}
 	}
 
 	@FXML
-	private void gerenciarExcluir(ActionEvent event) throws IOException {
-		
+	private void gerenciarExcluir(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
+ 			paneCRUDadicionar.setVisible(false);
+ 			paneCRUDexcluir.setVisible(true);
+ 		} else if (paneCRUDeditar.isVisible()) {
+ 			paneCRUDeditar.setVisible(false);
+ 			paneCRUDexcluir.setVisible(true);
+ 		} else {
+ 			paneCRUDpesquisar.setVisible(false);
+ 			paneCRUDexcluir.setVisible(true);
+ 		}
 	}
 
 	@FXML
-	private void gerenciarPesquisa(ActionEvent event) throws IOException {
-		
+	private void gerenciarPesquisa(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
+ 			paneCRUDadicionar.setVisible(false);
+ 			paneCRUDpesquisar.setVisible(true);
+ 		} else if (paneCRUDeditar.isVisible()) {
+ 			paneCRUDeditar.setVisible(false);
+ 			paneCRUDpesquisar.setVisible(true);
+ 		} else {
+ 			paneCRUDexcluir.setVisible(false);
+ 			paneCRUDpesquisar.setVisible(true);
+ 		}
 	}
 	// fim navegação CRUD
 
+	// btm pane crud
+	@FXML
+    void btnAplicarAdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAplicarEdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAplicarExclusao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAplicarPesquisa(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelarAdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelarEdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelarExclusao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelarPesquisa(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparAdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparEdicao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparExclusao(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLimparPesquisa(ActionEvent event) {
+
+    }
+	
 	@FXML
 	void initialize() {
 		preencherTableView();
 		
-		assert btnClientpage != null
-				: "fx:id=\"btnClientpage\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnProductPage != null
-				: "fx:id=\"btnProductPage\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnRequestPage != null
-				: "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'suppliers.fxml'.";
-
-		assert btnCRUDadicionar != null
-				: "fx:id=\"btnCRUDadicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnCRUDeditar != null
-				: "fx:id=\"btnCRUDeditar\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnCRUDexcluir != null
-				: "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'suppliers.fxml'.";
-		assert btnCRUDpesquisar != null
-				: "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'suppliers.fxml'.";
-		
-		assert tableFornecedor != null : "fx:id=\"tableFornecedor\" was not injected: check your FXML file 'suppliers.fxml'.";
+		assert btnCRUDadicionar != null : "fx:id=\"btnCRUDadicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnCRUDeditar != null : "fx:id=\"btnCRUDeditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnCRUDexcluir != null : "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnCRUDpesquisar != null : "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert paneCRUDadicionar != null : "fx:id=\"paneCRUDadicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert paneCRUDeditar != null : "fx:id=\"paneCRUDeditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert paneCRUDexcluir != null : "fx:id=\"paneCRUDexcluir\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert paneCRUDpesquisar != null : "fx:id=\"paneCRUDpesquisar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert statusAdicao != null : "fx:id=\"statusAdicao\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert statusEdicao != null : "fx:id=\"statusEdicao\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert statusExclusao != null : "fx:id=\"statusExclusao\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert statusPesquisa != null : "fx:id=\"statusPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert tableFornecedor != null : "fx:id=\"tableFornecedor\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaCNPJEditar != null : "fx:id=\"txtAreaCNPJEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaCNPJPesquisa != null : "fx:id=\"txtAreaCNPJPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaCNPJadicionar != null : "fx:id=\"txtAreaCNPJadicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaEmailAdicionar != null : "fx:id=\"txtAreaEmailAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaEmailEditar != null : "fx:id=\"txtAreaEmailEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaEmailPesquisa != null : "fx:id=\"txtAreaEmailPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaExcluir != null : "fx:id=\"txtAreaExcluir\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaIDadicionar != null : "fx:id=\"txtAreaIDadicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaIDeditar != null : "fx:id=\"txtAreaIDeditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaIDpesquisa != null : "fx:id=\"txtAreaIDpesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaMtdEnvioAdicionar != null : "fx:id=\"txtAreaMtdEnvioAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaMtdEnvioEditar != null : "fx:id=\"txtAreaMtdEnvioEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaMtdEnvioPesquisa != null : "fx:id=\"txtAreaMtdEnvioPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaNomeAdicionar != null : "fx:id=\"txtAreaNomeAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaNomeEditar != null : "fx:id=\"txtAreaNomeEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaNomePesquisa != null : "fx:id=\"txtAreaNomePesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaProdFornecidosAdicionar != null : "fx:id=\"txtAreaProdFornecidosAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaProdFornecidosEditar != null : "fx:id=\"txtAreaProdFornecidosEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaProdFornecidosPesquisa != null : "fx:id=\"txtAreaProdFornecidosPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTelefoneAdicionar != null : "fx:id=\"txtAreaTelefoneAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTelefoneEditar != null : "fx:id=\"txtAreaTelefoneEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTelefonePesquisa != null : "fx:id=\"txtAreaTelefonePesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTipoAdicionar != null : "fx:id=\"txtAreaTipoAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTipoEditar != null : "fx:id=\"txtAreaTipoEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTipoPesquisa != null : "fx:id=\"txtAreaTipoPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTpEntregaAdicionar != null : "fx:id=\"txtAreaTpEntregaAdicionar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTpEntregaEditar != null : "fx:id=\"txtAreaTpEntregaEditar\" was not injected: check your FXML file 'suppliers.fxml'.";
+        assert txtAreaTpEntregaPesquisa != null : "fx:id=\"txtAreaTpEntregaPesquisa\" was not injected: check your FXML file 'suppliers.fxml'.";
 
 	}
 

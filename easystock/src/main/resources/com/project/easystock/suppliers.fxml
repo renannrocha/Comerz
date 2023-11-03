@@ -3,12 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.SuppliersController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.easystock.controllers.SuppliersController">
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
@@ -45,30 +47,6 @@
          </children>
       </Pane>
       <Line endX="1154.0" layoutX="246.0" layoutY="60.0" startX="-246.0" stroke="#d0d0d0" />
-      <Pane layoutY="713.0" prefHeight="87.0" prefWidth="1400.0">
-         <children>
-            <Button fx:id="btnCRUDpesquisar" defaultButton="true" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarPesquisa" prefHeight="25.0" prefWidth="330.0" text="Pesquisar">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnCRUDeditar" defaultButton="true" layoutX="364.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarEditar" prefHeight="25.0" prefWidth="330.0" text="Editar">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnCRUDexcluir" defaultButton="true" layoutX="1056.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarExcluir" prefHeight="25.0" prefWidth="330.0" text="Excluir">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnCRUDadicionar" defaultButton="true" layoutX="710.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarAdicoes" prefHeight="25.0" prefWidth="330.0" text="Adicionar">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
       <ScrollPane layoutY="60.0" prefHeight="651.0" prefWidth="1400.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1385.0">
@@ -78,5 +56,157 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Pane layoutY="711.0" prefHeight="233.0" prefWidth="1400.0">
+         <children>
+            <Button fx:id="btnCRUDpesquisar" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#gerenciarPesquisa" prefHeight="25.0" prefWidth="330.0" text="Pesquisar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCRUDeditar" layoutX="14.0" layoutY="72.0" mnemonicParsing="false" onAction="#gerenciarEditar" prefHeight="25.0" prefWidth="330.0" text="Editar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCRUDexcluir" layoutX="14.0" layoutY="173.0" mnemonicParsing="false" onAction="#gerenciarExcluir" prefHeight="25.0" prefWidth="330.0" text="Excluir">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCRUDadicionar" layoutX="14.0" layoutY="124.0" mnemonicParsing="false" onAction="#gerenciarAdicoes" prefHeight="25.0" prefWidth="330.0" text="Adicionar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <AnchorPane fx:id="paneCRUDpesquisar" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite as Informações">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaIDpesquisa" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
+                  <Text layoutX="119.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+                  <TextField fx:id="txtAreaNomePesquisa" layoutX="157.0" layoutY="46.0" />
+                  <Text layoutX="342.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos Fornecidos" />
+                  <Text layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Método de Envio " />
+                  <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+                  <Text layoutX="204.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo de Entrega" />
+                  <Text layoutX="440.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone" />
+                  <Text layoutX="315.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
+                  <Text layoutX="150.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
+                  <TextField fx:id="txtAreaTipoPesquisa" layoutX="348.0" layoutY="46.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaTelefonePesquisa" layoutX="493.0" layoutY="46.0" prefHeight="25.0" prefWidth="91.0" />
+                  <TextField fx:id="txtAreaEmailPesquisa" layoutX="57.0" layoutY="78.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaCNPJPesquisa" layoutX="187.0" layoutY="78.0" />
+                  <TextField fx:id="txtAreaProdFornecidosPesquisa" layoutX="457.0" layoutY="78.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaMtdEnvioPesquisa" layoutX="112.0" layoutY="113.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaTpEntregaPesquisa" layoutX="310.0" layoutY="113.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarPesquisa" text="Aplicar" />
+                  <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparPesquisa" text="Limpar" />
+                  <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarPesquisa" text="Cancelar" />
+                  <Text fx:id="statusPesquisa" fill="RED" layoutX="14.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="erro - dados não foram encontrados" underline="true" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Line endX="-116.0" endY="233.0" layoutX="478.0" startX="-116.0" startY="0.5" stroke="#d0d0d0" />
+            <AnchorPane fx:id="paneCRUDeditar" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o ID e digite as novas informações">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="RED" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+                  <TextField fx:id="txtAreaIDeditar" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
+                  <Text layoutX="119.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+                  <TextField fx:id="txtAreaNomeEditar" layoutX="157.0" layoutY="46.0" />
+                  <Text layoutX="342.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos Fornecidos" />
+                  <Text layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Método de Envio " />
+                  <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+                  <Text layoutX="204.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo de Entrega" />
+                  <Text layoutX="440.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone" />
+                  <Text layoutX="315.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
+                  <Text layoutX="150.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
+                  <TextField fx:id="txtAreaTipoEditar" layoutX="348.0" layoutY="46.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaTelefoneEditar" layoutX="493.0" layoutY="46.0" prefHeight="25.0" prefWidth="91.0" />
+                  <TextField fx:id="txtAreaEmailEditar" layoutX="57.0" layoutY="78.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaCNPJEditar" layoutX="187.0" layoutY="78.0" />
+                  <TextField fx:id="txtAreaProdFornecidosEditar" layoutX="457.0" layoutY="78.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaMtdEnvioEditar" layoutX="112.0" layoutY="113.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaTpEntregaEditar" layoutX="310.0" layoutY="113.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarEdicao" text="Aplicar" />
+                  <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparEdicao" text="Limpar" />
+                  <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarEdicao" text="Cancelar" />
+                  <Text fx:id="statusEdicao" fill="RED" layoutX="14.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="erro - dados não foram encontrados" underline="true" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneCRUDadicionar" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite as Informações">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaIDadicionar" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
+                  <Text layoutX="119.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+                  <TextField fx:id="txtAreaNomeAdicionar" layoutX="157.0" layoutY="46.0" />
+                  <Text layoutX="342.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos Fornecidos" />
+                  <Text layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Método de Envio " />
+                  <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail" />
+                  <Text layoutX="204.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tempo de Entrega" />
+                  <Text layoutX="440.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone" />
+                  <Text layoutX="315.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
+                  <Text layoutX="150.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNPJ" />
+                  <TextField fx:id="txtAreaTipoAdicionar" layoutX="348.0" layoutY="46.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaTelefoneAdicionar" layoutX="493.0" layoutY="46.0" prefHeight="25.0" prefWidth="91.0" />
+                  <TextField fx:id="txtAreaEmailAdicionar" layoutX="57.0" layoutY="78.0" prefHeight="25.0" prefWidth="83.0" />
+                  <TextField fx:id="txtAreaCNPJadicionar" layoutX="187.0" layoutY="78.0" />
+                  <TextField fx:id="txtAreaProdFornecidosAdicionar" layoutX="457.0" layoutY="78.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaMtdEnvioAdicionar" layoutX="112.0" layoutY="113.0" prefHeight="25.0" prefWidth="85.0" />
+                  <TextField fx:id="txtAreaTpEntregaAdicionar" layoutX="310.0" layoutY="113.0" prefHeight="25.0" prefWidth="60.0" />
+                  <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarAdicao" text="Aplicar" />
+                  <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparAdicao" text="Limpar" />
+                  <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarAdicao" text="Cancelar" />
+                  <Text fx:id="statusAdicao" fill="RED" layoutX="14.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="erro - dados não foram encontrados" underline="true" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneCRUDexcluir" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o ID para exclusão">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaExcluir" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
+                  <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarExclusao" text="Aplicar" />
+                  <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparExclusao" text="Limpar" />
+                  <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarExclusao" text="Cancelar" />
+                  <Text fx:id="statusExclusao" fill="RED" layoutX="14.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="erro - dados não foram encontrados" underline="true" visible="false">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
    </children>
 </Pane>
