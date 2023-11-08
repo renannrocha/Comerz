@@ -65,4 +65,124 @@ public class ClienteDao {
 
         return clientes;
     }
+    
+    public boolean inserirCliente(Cliente cliente) {
+        try (Connection conexao = PostgresSQLConnectionUtil.obterConexao()) {
+            String sql = "INSERT INTO cliente (nome, tipo, endereco, cpfCnpj, contato, statusPedido, statusCliente) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+                preparedStatement.setString(1, cliente.getNome());
+                preparedStatement.setString(2, cliente.getTipo());
+                preparedStatement.setString(3, cliente.getEndereco());
+                preparedStatement.setString(4, cliente.getCpfCnpj());
+                preparedStatement.setString(5, cliente.getContato());
+                preparedStatement.setString(6, cliente.getStatusPedido());
+                preparedStatement.setString(7, cliente.getStatusCliente());
+
+                int linhasAfetadas = preparedStatement.executeUpdate();
+
+                return linhasAfetadas > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<Cliente> buscarClientes(Cliente cliente) {
+        List<Cliente> clientes = new ArrayList<>();
+        StringBuilder sql = new StringBuilder("SELECT * FROM cliente WHERE 1=1 ");
+
+        if (cliente.getId() != 0) {
+            sql.append("AND id = ").append(cliente.getId()).append(" ");
+        }
+
+        if (cliente.getNome() != null) {
+            sql.append("AND nome = '").append(cliente.getNome()).append("' ");
+        }
+
+        if (cliente.getTipo() != null) {
+            sql.append("AND tipo = '").append(cliente.getTipo()).append("' ");
+        }
+
+        if (cliente.getEndereco() != null) {
+            sql.append("AND endereco = '").append(cliente.getEndereco()).append("' ");
+        }
+
+        if (cliente.getCpfCnpj() != null) {
+            sql.append("AND cpfCnpj = '").append(cliente.getCpfCnpj()).append("' ");
+        }
+
+        if (cliente.getContato() != null) {
+            sql.append("AND contato = '").append(cliente.getContato()).append("' ");
+        }
+
+        if (cliente.getStatusPedido() != null) {
+            sql.append("AND statusPedido = '").append(cliente.getStatusPedido()).append("' ");
+        }
+
+        if (cliente.getStatusCliente() != null) {
+            sql.append("AND statusCliente = '").append(cliente.getStatusCliente()).append("' ");
+        }
+
+        try (Connection conexao = PostgresSQLConnectionUtil.obterConexao();
+             PreparedStatement preparedStatement = conexao.prepareStatement(sql.toString())) {
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Cliente clienteResultado = new Cliente(resultSet.getInt("id"), resultSet.getString("nome"),
+                            resultSet.getString("tipo"), resultSet.getString("endereco"),
+                            resultSet.getString("cpfCnpj"), resultSet.getString("contato"),
+                            resultSet.getString("statusPedido"), resultSet.getString("statusCliente"));
+                    clientes.add(clienteResultado);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return clientes;
+    }
+    
+    public boolean editarCliente(Cliente cliente) {
+        String sql = "UPDATE cliente SET nome = ?, tipo = ?, endereco = ?, cpfCnpj = ?, contato = ?, statusPedido = ?, statusCliente = ? WHERE id = ?";
+
+        try (Connection conexao = PostgresSQLConnectionUtil.obterConexao();
+             PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(2, cliente.getTipo());
+            preparedStatement.setString(3, cliente.getEndereco());
+            preparedStatement.setString(4, cliente.getCpfCnpj());
+            preparedStatement.setString(5, cliente.getContato());
+            preparedStatement.setString(6, cliente.getStatusPedido());
+            preparedStatement.setString(7, cliente.getStatusCliente());
+            preparedStatement.setInt(8, cliente.getId());
+
+            int linhasAfetadas = preparedStatement.executeUpdate();
+
+            return linhasAfetadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean deletarCliente(int id) {
+        try (Connection conexao = PostgresSQLConnectionUtil.obterConexao()) {
+            String sql = "DELETE FROM cliente WHERE id = ?";
+
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+                preparedStatement.setInt(1, id);
+
+                int linhasAfetadas = preparedStatement.executeUpdate();
+
+                return linhasAfetadas > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

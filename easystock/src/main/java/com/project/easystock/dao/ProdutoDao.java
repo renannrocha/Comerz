@@ -37,7 +37,7 @@ public class ProdutoDao {
 	// insert
 	public boolean inserirProduto(Produto produto) {
 		try (Connection conexao = PostgresSQLConnectionUtil.obterConexao()) {
-			String sql = "INSERT INTO Produtos (nome, categoria, precoVenda, precoCusto, quantidadeEstoque, fornecedor, dataEntrada, localizacaoArmazem, codigoBarras, peso, dimensoes, statusProduto, SKU, marca) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO Produtos (nome, categoria, precoVenda, precoCusto, quantidadeEstoque, fornecedor, dataEntrada, localizacao, codigoBarras, peso, dimensoes, statusProduto, SKU, marca) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
 				preparedStatement.setString(1, produto.getNome());
@@ -214,7 +214,7 @@ public class ProdutoDao {
 
 	// editar
 	public boolean editarProduto(Produto produto) {
-	    String sql = "UPDATE Produtos SET nome = ?, categoria = ?, preco_venda = ?, preco_custo = ?, quantidade_estoque = ?, fornecedor = ?, data_entrada = ?, localizacao_armazem = ?, codigo_barras = ?, peso = ?, dimensoes = ?, status_produto = ?, SKU = ?, marca = ? WHERE id = ?";
+	    String sql = "UPDATE Produtos SET nome = ?, categoria = ?, precoVenda = ?, precoCusto = ?, quantidadeEstoque = ?, fornecedor = ?, localizacao = ?, codigoBarras = ?, peso = ?, dimensoes = ?, statusProduto = ?, SKU = ?, marca = ? WHERE id = ?";
 
 	    try (Connection conexao = PostgresSQLConnectionUtil.obterConexao();
 	         PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
@@ -225,19 +225,14 @@ public class ProdutoDao {
 	        preparedStatement.setDouble(4, produto.getPrecoCusto());
 	        preparedStatement.setInt(5, produto.getQuantidadeEstoque());
 	        preparedStatement.setString(6, produto.getFornecedor());
-	        if (produto.getDataEntrada() != null) {
-	            preparedStatement.setDate(7, new java.sql.Date(produto.getDataEntrada().getTime()));
-	        } else {
-	            preparedStatement.setDate(7, null);
-	        }
-	        preparedStatement.setString(8, produto.getLocalizacao());
-	        preparedStatement.setString(9, produto.getCodigoBarras());
-	        preparedStatement.setDouble(10, produto.getPeso());
-	        preparedStatement.setString(11, produto.getDimensoes());
-	        preparedStatement.setString(12, produto.getStatusProduto());
-	        preparedStatement.setString(13, produto.getSku());
-	        preparedStatement.setString(14, produto.getMarca());
-	        preparedStatement.setLong(15, produto.getId());
+	        preparedStatement.setString(7, produto.getLocalizacao());
+	        preparedStatement.setString(8, produto.getCodigoBarras());
+	        preparedStatement.setDouble(9, produto.getPeso());
+	        preparedStatement.setString(10, produto.getDimensoes());
+	        preparedStatement.setString(11, produto.getStatusProduto());
+	        preparedStatement.setString(12, produto.getSku());
+	        preparedStatement.setString(13, produto.getMarca());
+	        preparedStatement.setLong(14, produto.getId());
 
 	        int linhasAfetadas = preparedStatement.executeUpdate();
 

@@ -60,7 +60,7 @@ public class LoginController {
 	        stage.close();
 	        
 	        try {
-	            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/project/easystock/index.fxml"));
+	            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/project/easystock/product.fxml"));
 	            Parent root = fxmlLoader.load();
 	            Stage appStage = new Stage();
 	            appStage.setResizable(false);

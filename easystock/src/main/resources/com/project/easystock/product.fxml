@@ -15,38 +15,32 @@
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
-         
-            <Button fx:id="btnDashbord" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenDashbord" text="Dashboard" textAlignment="CENTER">
+            
+            <Button disable="true" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="Produtos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             
-            <Button disable="true" layoutX="122.0" layoutY="13.0" mnemonicParsing="false" text="Produtos" textAlignment="CENTER">
+            <Button fx:id="btnFornecedoresPage" layoutX="111.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             
-            <Button fx:id="btnFornecedoresPage" layoutX="215.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
+            <Button fx:id="btnClientpage" layoutX="238.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenClientPage" text="Clientes" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             
-            <Button fx:id="btnClientpage" layoutX="340.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenClientPage" text="Clientes" textAlignment="CENTER">
+            <Button fx:id="btnRequestPage" layoutX="326.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
             
-            <Button fx:id="btnRequestPage" layoutX="424.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            
-            <Button fx:id="btnSalespage" layoutX="509.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenSalesPage" text="Vendas" textAlignment="CENTER">
+            <Button fx:id="btnSalespage" layoutX="415.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenSalesPage" text="Vendas" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -127,26 +121,19 @@
             <Line endX="-116.0" endY="233.0" layoutX="478.0" startX="-116.0" startY="0.5" stroke="#d0d0d0" />
             <AnchorPane fx:id="paneCRUDeditar" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
                <children>
-                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o ID e forneça as alterações necessarias">
+                  <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite a informação que você deseja alterar">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fill="RED" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="txtAreaIDeditar" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
-                  <Text layoutX="119.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
-                  <TextField fx:id="txtAreaNomeEditar" layoutX="157.0" layoutY="46.0" />
+                  <Text layoutX="19.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+                  <TextField fx:id="txtAreaNomeEditar" layoutX="62.0" layoutY="46.0" prefHeight="25.0" prefWidth="244.0" />
                   <Text layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço de Venda" />
                   <Text layoutX="201.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço de Custo" />
                   <Text layoutX="636.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria" />
                   <Text layoutX="379.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quntidade em Estoque" />
                   <Text layoutX="459.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornecedor" />
                   <Text layoutX="315.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marca" />
-                  <Text layoutX="745.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrada" />
                   <Text layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKU" />
                   <Text layoutX="578.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso" />
                   <Text layoutX="201.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localização no Armazém" />
@@ -165,7 +152,6 @@
                   <TextField fx:id="txtAreaSKUeditar" layoutX="45.0" layoutY="128.0" />
                   <TextField fx:id="txtAreaLocArmazemEditar" layoutX="340.0" layoutY="128.0" />
                   <TextField fx:id="txtAreaCodBarrasEditar" layoutX="591.0" layoutY="128.0" />
-                  <DatePicker fx:id="dtaAreaDtaEntradaEditar" layoutX="837.0" layoutY="128.0" prefHeight="25.0" prefWidth="111.0" />
                   <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarEdicao" text="Aplicar" />
                   <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparEdicao" text="Limpar" />
                   <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarEdicao" text="Cancelar" />
@@ -259,9 +245,9 @@
       </Pane>
       <ScrollPane layoutY="61.0" prefHeight="651.0" prefWidth="1400.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1400.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1600.0">
                <children>
-                  <TableView fx:id="tableProdutos" layoutX="14.0" layoutY="14.0" maxHeight="773.0" maxWidth="1390.0" minHeight="773.0" minWidth="1390.0" prefHeight="773.0" prefWidth="1390.0" />
+                  <TableView fx:id="tableProdutos" layoutX="14.0" layoutY="14.0" maxHeight="773.0" maxWidth="1590.0" minHeight="773.0" minWidth="1590.0" prefHeight="773.0" prefWidth="1590.0" />
                </children>
             </AnchorPane>
          </content>

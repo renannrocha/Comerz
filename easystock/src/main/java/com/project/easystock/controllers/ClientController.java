@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.text.Text;
 
 import com.project.easystock.dao.ClienteDao;
 import com.project.easystock.model.Cliente;
+import com.project.easystock.model.Fornecedor;
 
 public class ClientController {
 	
@@ -33,9 +35,6 @@ public class ClientController {
 
     @FXML
     private URL location;
-
-    @FXML
-    private Button btnDashbord;
 
     @FXML
     private Button btnFornecedoresPage;
@@ -80,6 +79,13 @@ public class ClientController {
     @FXML
     private AnchorPane paneCRUDexcluir;
     
+    @FXML
+    private AnchorPane confirmationIDAnchorPane;
+    
+    // confirm ID - edição
+    @FXML
+    private TextField txtAreaIDconfirm;
+    
     // Text status
     @FXML
     private Text statusAdicao;
@@ -94,95 +100,84 @@ public class ClientController {
     private Text statusPesquisa;
     
     // Text Field - entrada de dados
-    @FXML
-    private TextField txtAreaContatoAdicionar;
-
-    @FXML
-    private TextField txtAreaContatoEditar;
-
+    
+    //PESQUISAR
     @FXML
     private TextField txtAreaContatoPesquisar;
-
+    
+    @FXML
+    private TextField txtAreaCpfCnpjPesquisar;
+    
+    @FXML
+    private TextField txtAreaEnderecoPesquisar;
+    
+    @FXML
+    private TextField txtAreaIDpesquisar;
+    
+    @FXML
+    private TextField txtAreaNomePesquisar;
+    
+    @FXML
+    private TextField txtAreaStsClientePesquisar;
+    
+    @FXML
+    private TextField txtAreaStsPedidoPesquisar;
+    
+    @FXML
+    private TextField txtAreaTipoPesquisar;
+    
+    // ADICIONAR
+    @FXML
+    private TextField txtAreaContatoAdicionar;
+    
     @FXML
     private TextField txtAreaCpfCnpjAdicionar;
+    
+    @FXML
+    private TextField txtAreaEnderecoAdicionar;
+    
+    @FXML
+    private TextField txtAreaIDAdicionar;
+    
+    @FXML
+    private TextField txtAreaNomeAdicionar;
+    
+    @FXML
+    private TextField txtAreaStsClienteAdicionar;
+    
+    @FXML
+    private TextField txtAreaStsPedidoAdicionar;
+    
+    @FXML
+    private TextField txtAreaTipoAdicionar;
+    
+    // EDITAR
+    @FXML
+    private TextField txtAreaContatoEditar;
 
     @FXML
     private TextField txtAreaCpfCnpjEditar;
 
     @FXML
-    private TextField txtAreaCpfCnpjPesquisar;
-
-    @FXML
-    private TextField txtAreaEnderecoAdicionar;
-
-    @FXML
     private TextField txtAreaEnderecoEditar;
-
+    
     @FXML
-    private TextField txtAreaEnderecoPesquisar;
-
+    private TextField txtAreaNomeEditar;
+    
     @FXML
-    private TextField txtAreaIDAdicionar;
-
+    private TextField txtAreaStsClienteEditar;
+    
+    @FXML
+    private TextField txtAreaStsPedidoEditar;
+    
+    @FXML
+    private TextField txtAreaTipoEditar;
+    
+    // EXCLUIR
     @FXML
     private TextField txtAreaIDExcluir;
 
-    @FXML
-    private TextField txtAreaIDeditar;
-
-    @FXML
-    private TextField txtAreaIDpesquisar;
-
-    @FXML
-    private TextField txtAreaNomeAdicionar;
-
-    @FXML
-    private TextField txtAreaNomeEditar;
-
-    @FXML
-    private TextField txtAreaNomePesquisar;
-
-    @FXML
-    private TextField txtAreaStsClienteAdicionar;
-
-    @FXML
-    private TextField txtAreaStsClienteEditar;
-
-    @FXML
-    private TextField txtAreaStsClientePesquisar;
-
-    @FXML
-    private TextField txtAreaStsPedidoAdicionar;
-
-    @FXML
-    private TextField txtAreaStsPedidoEditar;
-
-    @FXML
-    private TextField txtAreaStsPedidoPesquisar;
-
-    @FXML
-    private TextField txtAreaTipoAdicionar;
-
-    @FXML
-    private TextField txtAreaTipoEditar;
-
-    @FXML
-    private TextField txtAreaTipoPesquisar;
-
- 	@FXML
-    private void btnOpenDashbord(ActionEvent event) throws IOException {
- 		Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stageAtual.close();
-        Stage novoStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/index.fxml"));
-        Scene scene = new Scene(root);
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-        novoStage.getIcons().add(applicationIcon);
-        novoStage.setTitle("EasyStock");
-        novoStage.setResizable(false);
-        novoStage.setScene(scene);
-        novoStage.show();
-    }
+    // --> NAVEGAÇÃO
 
     @FXML
     private void btnOpenFonecedoresPage(ActionEvent event) throws IOException {
@@ -244,7 +239,7 @@ public class ClientController {
         novoStage.show();
     }
     
-    // navegação CRUD
+    // --> EXIBIÇÃO TABELA
     public void preencherTableView() {
         // Obtém a lista de clientes
         ClienteDao clienteDao = new ClienteDao();
@@ -292,126 +287,366 @@ public class ClientController {
         clientTable.setItems(clientesObservable);
     }
     
-    // CRUD Buttons
- 	@FXML
- 	private void gerenciarAdicoes(ActionEvent event) throws IOException {
- 		if (paneCRUDeditar.isVisible()) {
+    // CRUD btn
+    @FXML
+	private void gerenciarAdicoes(ActionEvent event){
+		if (paneCRUDeditar.isVisible()) {
  			paneCRUDeditar.setVisible(false);
  			paneCRUDadicionar.setVisible(true);
  		} else if (paneCRUDexcluir.isVisible()) {
  			paneCRUDexcluir.setVisible(false);
  			paneCRUDadicionar.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
+ 			paneCRUDadicionar.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
  			paneCRUDadicionar.setVisible(true);
  		}
- 	}
+	}
 
- 	@FXML
- 	private void gerenciarEditar(ActionEvent event) throws IOException {
- 		if (paneCRUDadicionar.isVisible()) {
+	@FXML
+	private void gerenciarEditar(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
  			paneCRUDadicionar.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
  		} else if (paneCRUDexcluir.isVisible()) {
  			paneCRUDexcluir.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
+ 		} else if (paneCRUDeditar.isVisible()){ 
+ 			paneCRUDeditar.setVisible(false);
+ 			confirmationIDAnchorPane.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
- 			paneCRUDeditar.setVisible(true);
+ 			confirmationIDAnchorPane.setVisible(true);
  		}
- 	}
+	}
 
- 	@FXML
- 	private void gerenciarExcluir(ActionEvent event) throws IOException {
- 		if (paneCRUDadicionar.isVisible()) {
+	@FXML
+	private void gerenciarExcluir(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
  			paneCRUDadicionar.setVisible(false);
  			paneCRUDexcluir.setVisible(true);
  		} else if (paneCRUDeditar.isVisible()) {
  			paneCRUDeditar.setVisible(false);
  			paneCRUDexcluir.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
+ 			paneCRUDexcluir.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
  			paneCRUDexcluir.setVisible(true);
  		}
- 	}
+	}
 
- 	@FXML
- 	private void gerenciarPesquisa(ActionEvent event) throws IOException {
- 		if (paneCRUDadicionar.isVisible()) {
+	@FXML
+	private void gerenciarPesquisa(ActionEvent event){
+		if (paneCRUDadicionar.isVisible()) {
  			paneCRUDadicionar.setVisible(false);
  			paneCRUDpesquisar.setVisible(true);
  		} else if (paneCRUDeditar.isVisible()) {
  			paneCRUDeditar.setVisible(false);
+ 			paneCRUDpesquisar.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
  			paneCRUDpesquisar.setVisible(true);
  		} else {
  			paneCRUDexcluir.setVisible(false);
  			paneCRUDpesquisar.setVisible(true);
  		}
- 	}
- 	// fim navegação CRUD
+	}
+ 	// end CRUD btn
  	
  	
  	// btn anchorPanes CRUD
+	// ADICIONAR
  	@FXML
     void btnAplicarAdicao(ActionEvent event) {
+ 		Cliente cliente = new Cliente();
+
+ 		cliente.setId((int) Long.parseLong(txtAreaIDAdicionar.getText()));
+ 		cliente.setNome(txtAreaNomeAdicionar.getText());
+ 		cliente.setTipo(txtAreaTipoAdicionar.getText());
+ 		cliente.setEndereco(txtAreaEnderecoAdicionar.getText());
+ 		cliente.setCpfCnpj(txtAreaCpfCnpjAdicionar.getText());
+ 		cliente.setContato(txtAreaContatoAdicionar.getText());
+ 		cliente.setStatusPedido(txtAreaStsPedidoAdicionar.getText());
+ 		cliente.setStatusCliente(txtAreaStsClienteAdicionar.getText());
+
+ 		ClienteDao clienteDao = new ClienteDao();
+ 		if(clienteDao.inserirCliente(cliente)) {
+ 		    System.out.println("Cliente adicionado com sucesso!");
+
+ 		    // Chama a função listarClientes e atualiza a TableView com os resultados
+ 		    List<Cliente> clientes = clienteDao.listarClientes();
+ 		    // Converte a lista de clientes para um ObservableList
+ 		    ObservableList<Cliente> clientesObservable = FXCollections.observableArrayList(clientes);
+ 		    // Define os itens da TableView
+ 		    clientTable.setItems(clientesObservable);
+ 		    
+ 		    txtAreaCpfCnpjAdicionar.clear();
+ 		    txtAreaContatoAdicionar.clear();
+ 		    txtAreaEnderecoAdicionar.clear();
+ 		    txtAreaIDAdicionar.clear();
+ 		    txtAreaNomeAdicionar.clear();
+ 		    txtAreaStsClienteAdicionar.clear();
+ 		    txtAreaStsPedidoAdicionar.clear();
+ 		    txtAreaTipoAdicionar.clear();
+ 		    paneCRUDadicionar.setVisible(false);
+ 		} else {
+ 		    System.out.println("Falha ao adicionar o cliente.");
+ 		    statusEdicao.setVisible(true);
+ 		}
 
     }
-
+ 	
+ 	@FXML
+    void btnCancelarAdicao(ActionEvent event) {
+ 			txtAreaCpfCnpjAdicionar.clear();
+		    txtAreaContatoAdicionar.clear();
+		    txtAreaEnderecoAdicionar.clear();
+		    txtAreaIDAdicionar.clear();
+		    txtAreaNomeAdicionar.clear();
+		    txtAreaStsClienteAdicionar.clear();
+		    txtAreaStsPedidoAdicionar.clear();
+		    txtAreaTipoAdicionar.clear();
+		    paneCRUDadicionar.setVisible(false);
+    }
+ 	
+ 	@FXML
+    void btnLimparAdicao(ActionEvent event) {
+ 			txtAreaCpfCnpjAdicionar.clear();
+		    txtAreaContatoAdicionar.clear();
+		    txtAreaEnderecoAdicionar.clear();
+		    txtAreaIDAdicionar.clear();
+		    txtAreaNomeAdicionar.clear();
+		    txtAreaStsClienteAdicionar.clear();
+		    txtAreaStsPedidoAdicionar.clear();
+		    txtAreaTipoAdicionar.clear();
+    }
+ 	
+ 	
+ 	// EDITAR
     @FXML
     void btnAplicarEdicao(ActionEvent event) {
+    	Cliente cliente = clientTable.getItems().stream().filter(c -> c.getId() == Integer.parseInt(txtAreaIDconfirm.getText())).collect(Collectors.toList()).get(0);
+    	ClienteDao clienteDao = new ClienteDao();
 
-    }
+    	if (!cliente.getNome().equals(txtAreaNomeEditar.getText())) {
+    	    cliente.setNome(txtAreaNomeEditar.getText());
+    	}
 
-    @FXML
-    void btnAplicarExclusao(ActionEvent event) {
+    	if (!cliente.getTipo().equals(txtAreaTipoEditar.getText())) {
+    	    cliente.setTipo(txtAreaTipoEditar.getText());
+    	}
 
-    }
+    	if (!cliente.getEndereco().equals(txtAreaEnderecoEditar.getText())) {
+    	    cliente.setEndereco(txtAreaEnderecoEditar.getText());
+    	}
 
-    @FXML
-    void btnAplicarPesquisa(ActionEvent event) {
+    	if (!cliente.getCpfCnpj().equals(txtAreaCpfCnpjEditar.getText())) {
+    	    cliente.setCpfCnpj(txtAreaCpfCnpjEditar.getText());
+    	}
 
-    }
+    	if (!cliente.getContato().equals(txtAreaContatoEditar.getText())) {
+    	    cliente.setContato(txtAreaContatoEditar.getText());
+    	}
 
-    @FXML
-    void btnCancelarAdicao(ActionEvent event) {
+    	if (!cliente.getStatusPedido().equals(txtAreaStsPedidoEditar.getText())) {
+    	    cliente.setStatusPedido(txtAreaStsPedidoEditar.getText());
+    	}
 
-    }
+    	if (!cliente.getStatusCliente().equals(txtAreaStsClienteEditar.getText())) {
+    	    cliente.setStatusCliente(txtAreaStsClienteEditar.getText());
+    	}
 
-    @FXML
-    void btnCancelarEdicao(ActionEvent event) {
+    	if(clienteDao.editarCliente(cliente)) {
+    	    System.out.println("Cliente editado com sucesso!");
 
-    }
+    	    // Chama a função buscarClientes e atualiza a TableView com os resultados
+    	    List<Cliente> clientes = clienteDao.buscarClientes(cliente);
+    	    // Converte a lista de clientes para um ObservableList
+    	    ObservableList<Cliente> clientesObservable = FXCollections.observableArrayList(clientes);
+    	    // Define os itens da TableView
+    	    clientTable.setItems(clientesObservable);
+    	    
+    	    txtAreaCpfCnpjEditar.clear();
+    	    txtAreaContatoEditar.clear();
+    	    txtAreaEnderecoEditar.clear();
+    	    txtAreaNomeEditar.clear();
+    	    txtAreaStsClienteEditar.clear();
+    	    txtAreaStsPedidoEditar.clear();
+    	    txtAreaTipoEditar.clear();
+    	    paneCRUDeditar.setVisible(false);
 
-    @FXML
-    void btnCancelarExclusao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnCancelarPesquisa(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnLimparAdicao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnLimparEdicao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnLimparExclusao(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnLimparPesquisa(ActionEvent event) {
+    	} else {
+    	    System.out.println("Falha ao editar o cliente.");
+    	    statusEdicao.setVisible(true); // Tornar statusEdicao visível aqui
+    	}
 
     }
     
+    @FXML
+    void btnCancelarEdicao(ActionEvent event) {
+    	txtAreaCpfCnpjEditar.clear();
+	    txtAreaContatoEditar.clear();
+	    txtAreaEnderecoEditar.clear();
+	    txtAreaNomeEditar.clear();
+	    txtAreaStsClienteEditar.clear();
+	    txtAreaStsPedidoEditar.clear();
+	    txtAreaTipoEditar.clear();
+	    paneCRUDeditar.setVisible(false);
+    }
+    
+    @FXML
+    void btnLimparEdicao(ActionEvent event) {
+    	txtAreaCpfCnpjEditar.clear();
+	    txtAreaContatoEditar.clear();
+	    txtAreaEnderecoEditar.clear();
+	    txtAreaNomeEditar.clear();
+	    txtAreaStsClienteEditar.clear();
+	    txtAreaStsPedidoEditar.clear();
+	    txtAreaTipoEditar.clear();
+    }
+ // CONFIRM EDITAR
+    @FXML
+    void btnCancelID(ActionEvent event) {
+    	txtAreaIDconfirm.clear();
+    	confirmationIDAnchorPane.setVisible(false);
+    }
+    
+    @FXML
+    void btnConfirmID(ActionEvent event) {
+    	if (!txtAreaIDconfirm.getText().isEmpty()) {
+    	    int id = Integer.parseInt(txtAreaIDconfirm.getText());
+    	    Cliente cliente = clientTable.getItems().stream().filter(c -> c.getId() == id).collect(Collectors.toList()).get(0);
+    	    
+    	    confirmationIDAnchorPane.setVisible(false);
+    	    paneCRUDeditar.setVisible(true);
+    	    
+    	    if (cliente != null) {
+    	        txtAreaNomeEditar.setText(cliente.getNome());
+    	        txtAreaTipoEditar.setText(cliente.getTipo());
+    	        txtAreaEnderecoEditar.setText(cliente.getEndereco());
+    	        txtAreaCpfCnpjEditar.setText(cliente.getCpfCnpj());
+    	        txtAreaContatoEditar.setText(cliente.getContato());
+    	        txtAreaStsPedidoEditar.setText(cliente.getStatusPedido());
+    	        txtAreaStsClienteEditar.setText(cliente.getStatusCliente());
+    	    }
+    	}
+
+
+    }
+    
+    
+    // EXCLUIR
+    @FXML
+    void btnAplicarExclusao(ActionEvent event) {
+    	if (!txtAreaIDExcluir.getText().isEmpty()) {
+    	    int id = Integer.parseInt(txtAreaIDExcluir.getText());
+    	    ClienteDao clienteDao = new ClienteDao();
+    	    boolean resultado = clienteDao.deletarCliente(id);
+    	    List<Cliente> clientes = clienteDao.listarClientes();
+    	    ObservableList<Cliente> clientesObservable = FXCollections.observableArrayList(clientes);
+    	    clientTable.setItems(clientesObservable);
+    	    txtAreaIDExcluir.clear();
+    	    
+    	    if (!resultado) {
+    	        txtAreaIDExcluir.clear();
+    	        statusExclusao.setVisible(true);
+    	    }
+    	}
+
+    }
+    
+    @FXML
+    void btnCancelarExclusao(ActionEvent event) {
+    	txtAreaIDExcluir.clear();
+    	paneCRUDexcluir.setVisible(false);
+    }
+    
+    @FXML
+    void btnLimparExclusao(ActionEvent event) {
+    	txtAreaIDExcluir.clear();
+    }
+    
+    
+    // PESQUISAR
+    @FXML
+    void btnAplicarPesquisa(ActionEvent event) {
+    	Cliente cliente = new Cliente();
+
+        if (!txtAreaIDpesquisar.getText().isEmpty()) {
+            cliente.setId(Integer.parseInt(txtAreaIDpesquisar.getText()));
+        }
+
+        if (!txtAreaNomePesquisar.getText().isEmpty()) {
+            cliente.setNome(txtAreaNomePesquisar.getText());
+        }
+
+        if (!txtAreaTipoPesquisar.getText().isEmpty()) {
+            cliente.setTipo(txtAreaTipoPesquisar.getText());
+        }
+
+        if (!txtAreaEnderecoPesquisar.getText().isEmpty()) {
+            cliente.setEndereco(txtAreaEnderecoPesquisar.getText());
+        }
+
+        if (!txtAreaCpfCnpjPesquisar.getText().isEmpty()) {
+            cliente.setCpfCnpj(txtAreaCpfCnpjPesquisar.getText());
+        }
+
+        if (!txtAreaContatoPesquisar.getText().isEmpty()) {
+            cliente.setContato(txtAreaContatoPesquisar.getText());
+        }
+
+        if (!txtAreaStsPedidoPesquisar.getText().isEmpty()) {
+            cliente.setStatusPedido(txtAreaStsPedidoPesquisar.getText());
+        }
+
+        if (!txtAreaStsClientePesquisar.getText().isEmpty()) {
+            cliente.setStatusCliente(txtAreaStsClientePesquisar.getText());
+        }
+
+        ClienteDao clienteDao = new ClienteDao();
+        List<Cliente> clientes = clienteDao.buscarClientes(cliente);
+        ObservableList<Cliente> clientesObservable = FXCollections.observableArrayList(clientes);
+        clientTable.setItems(clientesObservable);
+
+        txtAreaCpfCnpjPesquisar.clear();
+        txtAreaContatoPesquisar.clear();
+        txtAreaEnderecoPesquisar.clear();
+        txtAreaIDpesquisar.clear();
+        txtAreaNomePesquisar.clear();
+        txtAreaStsClientePesquisar.clear();
+        txtAreaStsPedidoPesquisar.clear();
+        txtAreaTipoPesquisar.clear();
+    }
+    
+    @FXML
+    void btnCancelarPesquisa(ActionEvent event) {
+    	txtAreaCpfCnpjPesquisar.clear();
+        txtAreaContatoPesquisar.clear();
+        txtAreaEnderecoPesquisar.clear();
+        txtAreaIDpesquisar.clear();
+        txtAreaNomePesquisar.clear();
+        txtAreaStsClientePesquisar.clear();
+        txtAreaStsPedidoPesquisar.clear();
+        txtAreaTipoPesquisar.clear();
+        paneCRUDpesquisar.setVisible(false);
+    }
+    
+    @FXML
+    void btnLimparPesquisa(ActionEvent event) {
+    	txtAreaCpfCnpjPesquisar.clear();
+        txtAreaContatoPesquisar.clear();
+        txtAreaEnderecoPesquisar.clear();
+        txtAreaIDpesquisar.clear();
+        txtAreaNomePesquisar.clear();
+        txtAreaStsClientePesquisar.clear();
+        txtAreaStsPedidoPesquisar.clear();
+        txtAreaTipoPesquisar.clear();
+    }
     
     @FXML
     void initialize() {
@@ -421,7 +656,6 @@ public class ClientController {
         assert btnCRUDeditar != null : "fx:id=\"btnCRUDeditar\" was not injected: check your FXML file 'client.fxml'.";
         assert btnCRUDexcluir != null : "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'client.fxml'.";
         assert btnCRUDpesquisar != null : "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'client.fxml'.";
-        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'client.fxml'.";
         assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'client.fxml'.";
         assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'client.fxml'.";
         assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'client.fxml'.";
@@ -446,7 +680,6 @@ public class ClientController {
         assert txtAreaEnderecoPesquisar != null : "fx:id=\"txtAreaEnderecoPesquisar\" was not injected: check your FXML file 'client.fxml'.";
         assert txtAreaIDAdicionar != null : "fx:id=\"txtAreaIDAdicionar\" was not injected: check your FXML file 'client.fxml'.";
         assert txtAreaIDExcluir != null : "fx:id=\"txtAreaIDExcluir\" was not injected: check your FXML file 'client.fxml'.";
-        assert txtAreaIDeditar != null : "fx:id=\"txtAreaIDeditar\" was not injected: check your FXML file 'client.fxml'.";
         assert txtAreaIDpesquisar != null : "fx:id=\"txtAreaIDpesquisar\" was not injected: check your FXML file 'client.fxml'.";
         assert txtAreaNomeAdicionar != null : "fx:id=\"txtAreaNomeAdicionar\" was not injected: check your FXML file 'client.fxml'.";
         assert txtAreaNomeEditar != null : "fx:id=\"txtAreaNomeEditar\" was not injected: check your FXML file 'client.fxml'.";
@@ -462,6 +695,5 @@ public class ClientController {
         assert txtAreaTipoPesquisar != null : "fx:id=\"txtAreaTipoPesquisar\" was not injected: check your FXML file 'client.fxml'.";
         
     }
-
 	
 }

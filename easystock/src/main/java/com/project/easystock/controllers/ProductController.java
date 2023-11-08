@@ -41,11 +41,9 @@ public class ProductController {
 	private URL location;
 
 	// nav bar buttons
+	
 	@FXML
 	private Button btnClientpage;
-
-	@FXML
-	private Button btnDashbord;
 
 	@FXML
 	private Button btnFornecedoresPage;
@@ -71,20 +69,20 @@ public class ProductController {
 	private Button btnCRUDpesquisar;
 
 	// table
+	
 	@FXML
 	private TableView<Produto> tableProdutos;
 	
 	// date 
+	
 	@FXML
     private DatePicker dtaAreaDtaEntradaAdicionar;
-
-    @FXML
-    private DatePicker dtaAreaDtaEntradaEditar;
 
     @FXML
     private DatePicker dtaAreaDtaEntradaPesquisa;
     
     // AnchorPane
+    
     @FXML
     private AnchorPane paneCRUDadicionar;
 
@@ -101,6 +99,7 @@ public class ProductController {
     private AnchorPane confirmationIDAnchorPane;
     
     // error Text status
+    
     @FXML
     private Text statusAdicao;
 
@@ -115,11 +114,13 @@ public class ProductController {
     
     // txt
     
-    // confirmAnchorpane
+    // confirm ID - edição
+    
     @FXML
     private TextField txtAreaIDconfirm;
     
     // adicionar
+    
     @FXML
     private TextField txtAreaCategoriaAdicionar;
     
@@ -146,108 +147,112 @@ public class ProductController {
     
     @FXML
     private TextField txtAreaPesoAdicionar;
+    
+    @FXML
+    private TextField txtAreaPrecoCustoAdicionar;
+    
+    @FXML
+    private TextField txtAreaPrecoVendaAdicionar;
+    
+    @FXML
+    private TextField txtAreaQtdEstoqueAdicionar;
+    
+    @FXML
+    private TextField txtAreaSKUadicionar;
+    
+    @FXML
+    private TextField txtAreaSTSprodutoAdicionar;
 
+    // editar
+    
     @FXML
     private TextField txtAreaCategoriaEditar;
-
-    @FXML
-    private TextField txtAreaCategoriaPesquisa;
-
+    
     @FXML
     private TextField txtAreaCodBarrasEditar;
+    
+    @FXML
+    private TextField txtAreaDimencoesEditar;
+    
+    @FXML
+    private TextField txtAreaFornecedorEditar;
+    
+    @FXML
+    private TextField txtAreaLocArmazemEditar;
+    
+    @FXML
+    private TextField txtAreaMarcaEditar;
+    
+    @FXML
+    private TextField txtAreaNomeEditar;
+    
+    @FXML
+    private TextField txtAreaPesoEditar;
+    
+    @FXML
+    private TextField txtAreaPrecoCustoEditar;
+    
+    @FXML
+    private TextField txtAreaPrecoVendaEditar;
+    
+    @FXML
+    private TextField txtAreaQtdEstoqueEditar;
+    
+    @FXML
+    private TextField txtAreaSKUeditar;
+    
+    @FXML
+    private TextField txtAreaSTSprodutoEditar;
+    
+    //pesquisar
+    
+    @FXML
+    private TextField txtAreaCategoriaPesquisa;
 
     @FXML
     private TextField txtAreaCodBarrasPesquisa;
 
     @FXML
-    private TextField txtAreaDimencoesEditar;
-
-    @FXML
     private TextField txtAreaDimencoesPesquisa;
 
     @FXML
-    private TextField txtAreaFornecedorEditar;
-
-    @FXML
     private TextField txtAreaFornecedorPesquisa;
-
-    @FXML
-    private TextField txtAreaIDeditar;
-
-    @FXML
-    private TextField txtAreaIDexclusao;
-
+    
     @FXML
     private TextField txtAreaIDpesquisa;
-
-    @FXML
-    private TextField txtAreaLocArmazemEditar;
-
+    
     @FXML
     private TextField txtAreaLocArmazemPesquisa;
-
-    @FXML
-    private TextField txtAreaMarcaEditar;
-
+    
     @FXML
     private TextField txtAreaMarcaPesquisa;
-
-    @FXML
-    private TextField txtAreaNomeEditar;
-
+    
     @FXML
     private TextField txtAreaNomePesquisa;
-
-    @FXML
-    private TextField txtAreaPesoEditar;
-
+    
     @FXML
     private TextField txtAreaPesoPesquisa;
-
-    @FXML
-    private TextField txtAreaPrecoCustoAdicionar;
-
-    @FXML
-    private TextField txtAreaPrecoCustoEditar;
-
+    
     @FXML
     private TextField txtAreaPrecoCustoPesquisa;
-
-    @FXML
-    private TextField txtAreaPrecoVendaAdicionar;
-
-    @FXML
-    private TextField txtAreaPrecoVendaEditar;
-
+    
     @FXML
     private TextField txtAreaPrecoVendaPesquisa;
-
-    @FXML
-    private TextField txtAreaQtdEstoqueAdicionar;
-
-    @FXML
-    private TextField txtAreaQtdEstoqueEditar;
-
+    
     @FXML
     private TextField txtAreaQtdEstoquePesquisa;
-
+    
     @FXML
     private TextField txtAreaSKUPesquisa;
-
-    @FXML
-    private TextField txtAreaSKUadicionar;
-
-    @FXML
-    private TextField txtAreaSKUeditar;
-
-    @FXML
-    private TextField txtAreaSTSprodutoAdicionar;
-
-    @FXML
-    private TextField txtAreaSTSprodutoEditar;
-
+    
     @FXML
     private TextField txtAreaSTSprodutoPesquisa;
+    
+    
+    // excluir
+    @FXML
+    private TextField txtAreaIDexclusao;
+    
 	
 	// navegação
 	@FXML
@@ -258,22 +263,6 @@ public class ProductController {
 		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/client.fxml"));
 		Scene scene = new Scene(root);
 		Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-		novoStage.getIcons().add(applicationIcon);
-		novoStage.setTitle("EasyStock");
-		novoStage.setResizable(false);
-		novoStage.setScene(scene);
-		novoStage.show();
-	}
-
-	@FXML
-	private void btnOpenDashbord(ActionEvent event) throws IOException {
-		Stage stageAtual = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stageAtual.close();
-		Stage novoStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/index.fxml"));
-		Scene scene = new Scene(root);
-		Image applicationIcon = new Image(
-				getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
 		novoStage.getIcons().add(applicationIcon);
 		novoStage.setTitle("EasyStock");
 		novoStage.setResizable(false);
@@ -331,6 +320,7 @@ public class ProductController {
 	// fim navegação
 	
 	// configurações tabela principal
+	
 	public void preencherTableView() {
 		// Obtém a lista de produtos
 		ProdutoDao produtoDao = new ProdutoDao();
@@ -407,23 +397,10 @@ public class ProductController {
 		// Define os itens da TableView
 		tableProdutos.setItems(produtosObservable);
 	}
-
+	
+	// fim configuração tabela
+	
 	// navegação CRUD
-	
-	// Stage novoStage = new Stage();
-	// Parent root =
-	// FXMLLoader.load(getClass().getResource("/com/project/easystock/productWindowCRUD.fxml"));
-	// Scene scene = new Scene(root);
-	// Image applicationIcon = new
-	// Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-	// novoStage.getIcons().add(applicationIcon);
-	// novoStage.setTitle("EasyStock");
-	// novoStage.setResizable(false);
-	// novoStage.setScene(scene);
-	// novoStage.initModality(Modality.APPLICATION_MODAL);
-	// novoStage.showAndWait();
-	
-	
 
 	@FXML
 	private void gerenciarAdicoes(ActionEvent event){
@@ -432,6 +409,9 @@ public class ProductController {
  			paneCRUDadicionar.setVisible(true);
  		} else if (paneCRUDexcluir.isVisible()) {
  			paneCRUDexcluir.setVisible(false);
+ 			paneCRUDadicionar.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
  			paneCRUDadicionar.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
@@ -464,6 +444,9 @@ public class ProductController {
  		} else if (paneCRUDeditar.isVisible()) {
  			paneCRUDeditar.setVisible(false);
  			paneCRUDexcluir.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
+ 			paneCRUDexcluir.setVisible(true);
  		} else {
  			paneCRUDpesquisar.setVisible(false);
  			paneCRUDexcluir.setVisible(true);
@@ -478,17 +461,53 @@ public class ProductController {
  		} else if (paneCRUDeditar.isVisible()) {
  			paneCRUDeditar.setVisible(false);
  			paneCRUDpesquisar.setVisible(true);
+ 		} else if(confirmationIDAnchorPane.isVisible()){
+ 			confirmationIDAnchorPane.setVisible(false);
+ 			paneCRUDpesquisar.setVisible(true);
  		} else {
  			paneCRUDexcluir.setVisible(false);
  			paneCRUDpesquisar.setVisible(true);
  		}
 	}
+	
 	// fim navegação CRUD
 	
 	// AnchorPane buttons adicionar
 	@FXML
     void btnAplicarAdicao(ActionEvent event) {
-
+		Produto produto = new Produto();
+	    
+	    produto.setId(Long.parseLong(txtAreaIDadicionar.getText()));
+	    produto.setNome(txtAreaNomeAdicionar.getText());
+	    produto.setCategoria(txtAreaCategoriaAdicionar.getText());
+	    produto.setPrecoVenda(Double.parseDouble(txtAreaPrecoVendaAdicionar.getText()));
+	    produto.setPrecoCusto(Double.parseDouble(txtAreaPrecoCustoAdicionar.getText()));
+	    produto.setQuantidadeEstoque(Integer.parseInt(txtAreaQtdEstoqueAdicionar.getText()));
+	    produto.setFornecedor(txtAreaFornecedorAdicionar.getText());
+	    produto.setLocalizacao(txtAreaLocArmazemAdicionar.getText());
+	    produto.setCodigoBarras(txtAreaCodBarrasAdicionar.getText());
+	    produto.setPeso(Double.parseDouble(txtAreaPesoAdicionar.getText()));
+	    produto.setDimensoes(txtAreaDimencoesAdicionar.getText());
+	    produto.setStatusProduto(txtAreaSTSprodutoAdicionar.getText());
+	    produto.setSku(txtAreaSKUadicionar.getText());
+	    produto.setMarca(txtAreaMarcaAdicionar.getText());
+	    produto.setDataEntrada(new Date()); // Define a data de entrada para a data atual
+	    
+	    ProdutoDao produtoDao = new ProdutoDao();
+	    if(produtoDao.inserirProduto(produto)) {
+	        System.out.println("Produto adicionado com sucesso!");
+	        
+	        // Chama a função listarProdutos e atualiza a TableView com os resultados
+	        List<Produto> produtos = produtoDao.listarProdutos();
+	        // Converte a lista de produtos para um ObservableList
+	        ObservableList<Produto> produtosObservable = FXCollections.observableArrayList(produtos);
+	        // Define os itens da TableView
+	        tableProdutos.setItems(produtosObservable);
+	        
+	    } else {
+	        System.out.println("Falha ao adicionar o produto.");
+	        statusEdicao.setVisible(true); // Tornar statusEdicao visível aqui
+	    }
     }
 	
 	@FXML
@@ -504,23 +523,105 @@ public class ProductController {
 	// AnchorPane buttons Editar
     @FXML
     void btnAplicarEdicao(ActionEvent event) {
-
+    	 Produto produto = tableProdutos.getItems().stream().filter(p-> p.getId() == Long.parseLong(txtAreaIDconfirm.getText())).collect(Collectors.toList()).get(0);
+    	    ProdutoDao produtoDao = new ProdutoDao();
+    	    
+    	    if (!produto.getNome().equals(txtAreaNomeEditar.getText())) {
+    	        produto.setNome(txtAreaNomeEditar.getText());
+    	    }
+    	    if (!produto.getCategoria().equals(txtAreaCategoriaEditar.getText())) {
+    	        produto.setCategoria(txtAreaCategoriaEditar.getText());
+    	    }
+    	    if (produto.getPrecoVenda() != Double.parseDouble(txtAreaPrecoVendaEditar.getText())) {
+    	        produto.setPrecoVenda(Double.parseDouble(txtAreaPrecoVendaEditar.getText()));
+    	    }
+    	    if (produto.getPrecoCusto() != Double.parseDouble(txtAreaPrecoCustoEditar.getText())) {
+    	        produto.setPrecoCusto(Double.parseDouble(txtAreaPrecoCustoEditar.getText()));
+    	    }
+    	    if (produto.getQuantidadeEstoque() != Integer.parseInt(txtAreaQtdEstoqueEditar.getText())) {
+    	        produto.setQuantidadeEstoque(Integer.parseInt(txtAreaQtdEstoqueEditar.getText()));
+    	    }
+    	    if (!produto.getFornecedor().equals(txtAreaFornecedorEditar.getText())) {
+    	        produto.setFornecedor(txtAreaFornecedorEditar.getText());
+    	    }
+    	    if (!produto.getLocalizacao().equals(txtAreaLocArmazemEditar.getText())) {
+    	        produto.setLocalizacao(txtAreaLocArmazemEditar.getText());
+    	    }
+    	    if (!produto.getCodigoBarras().equals(txtAreaCodBarrasEditar.getText())) {
+    	        produto.setCodigoBarras(txtAreaCodBarrasEditar.getText());
+    	    }
+    	    if (produto.getPeso() != Double.parseDouble(txtAreaPesoEditar.getText())) {
+    	        produto.setPeso(Double.parseDouble(txtAreaPesoEditar.getText()));
+    	    }
+    	    if (!produto.getDimensoes().equals(txtAreaDimencoesEditar.getText())) {
+    	        produto.setDimensoes(txtAreaDimencoesEditar.getText());
+    	    }
+    	    if (!produto.getStatusProduto().equals(txtAreaSTSprodutoEditar.getText())) {
+    	        produto.setStatusProduto(txtAreaSTSprodutoEditar.getText());
+    	    }
+    	    if (!produto.getSku().equals(txtAreaSKUeditar.getText())) {
+    	        produto.setSku(txtAreaSKUeditar.getText());
+    	    }
+    	    if (!produto.getMarca().equals(txtAreaMarcaEditar.getText())) {
+    	        produto.setMarca(txtAreaMarcaEditar.getText());
+    	    }
+    	    
+    	    if(produtoDao.editarProduto(produto)) {
+    	        System.out.println("Produto editado com sucesso!");
+    	        
+    	        // Chama a função buscarProdutos e atualiza a TableView com os resultados
+    	        List<Produto> produtos = produtoDao.buscarProdutos(produto);
+    	        // Converte a lista de produtos para um ObservableList
+    	        ObservableList<Produto> produtosObservable = FXCollections.observableArrayList(produtos);
+    	        // Define os itens da TableView
+    	        tableProdutos.setItems(produtosObservable);
+    	        
+    	    } else {
+    	        System.out.println("Falha ao editar o produto.");
+    	        statusEdicao.setVisible(true); // Tornar statusEdicao visível aqui
+    	    }
     }
     
     @FXML
     void btnCancelarEdicao(ActionEvent event) {
-
+    	txtAreaCategoriaEditar.clear();
+        txtAreaCodBarrasEditar.clear();
+    	txtAreaDimencoesEditar.clear();
+        txtAreaFornecedorEditar.clear();
+        txtAreaLocArmazemEditar.clear();
+        txtAreaMarcaEditar.clear();
+    	txtAreaNomeEditar.clear();
+        txtAreaPesoEditar.clear();
+        txtAreaPrecoCustoEditar.clear();
+        txtAreaPrecoVendaEditar.clear();
+        txtAreaQtdEstoqueEditar.clear();
+        txtAreaSKUeditar.clear();
+        txtAreaSTSprodutoEditar.clear();
+        paneCRUDeditar.setVisible(false);
     }
     
     @FXML
     void btnLimparEdicao(ActionEvent event) {
-
+    	txtAreaCategoriaEditar.clear();
+        txtAreaCodBarrasEditar.clear();
+    	txtAreaDimencoesEditar.clear();
+        txtAreaFornecedorEditar.clear();
+        txtAreaLocArmazemEditar.clear();
+        txtAreaMarcaEditar.clear();
+    	txtAreaNomeEditar.clear();
+        txtAreaPesoEditar.clear();
+        txtAreaPrecoCustoEditar.clear();
+        txtAreaPrecoVendaEditar.clear();
+        txtAreaQtdEstoqueEditar.clear();
+        txtAreaSKUeditar.clear();
+        txtAreaSTSprodutoEditar.clear();
     }
     
     // confirmID Edição
     @FXML
     void btnCancelID(ActionEvent event) {
-    	
+    	txtAreaIDconfirm.clear();
+    	confirmationIDAnchorPane.setVisible(false);
     }
     
     @FXML
@@ -528,24 +629,18 @@ public class ProductController {
     	
     	if (!txtAreaIDconfirm.getText().isEmpty()) {
 	        Long id = Long.parseLong(txtAreaIDconfirm.getText());
-	        //ProdutoDao produtoDao = new ProdutoDao();
-	        //Produto produto = produtoDao.buscarProdutoPorId(id);
 	        Produto produto = tableProdutos.getItems().stream().filter(p-> p.getId() == id).collect(Collectors.toList()).get(0);
 	        
 	        confirmationIDAnchorPane.setVisible(false);
 	        paneCRUDeditar.setVisible(true);
 	        
 	        if (produto != null) {
-	            // Preencha os campos na paneCRUDeditar com as informações do produto
 	            txtAreaNomeEditar.setText(produto.getNome());
 	            txtAreaCategoriaEditar.setText(produto.getCategoria());
 	            txtAreaPrecoVendaEditar.setText(String.valueOf(produto.getPrecoVenda()));
 	            txtAreaPrecoCustoEditar.setText(String.valueOf(produto.getPrecoCusto()));
 	            txtAreaQtdEstoqueEditar.setText(String.valueOf(produto.getQuantidadeEstoque()));
 	            txtAreaFornecedorEditar.setText(produto.getFornecedor());
-	            if (produto.getDataEntrada() != null) {
-	                dtaAreaDtaEntradaEditar.setValue(produto.getDataEntrada().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-	            }
 	            txtAreaLocArmazemEditar.setText(produto.getLocalizacao());
 	            txtAreaCodBarrasEditar.setText(produto.getCodigoBarras());
 	            txtAreaPesoEditar.setText(String.valueOf(produto.getPeso()));
@@ -556,18 +651,25 @@ public class ProductController {
 	            }
 	        }
     }
-    
+
     // AnchorPane buttons Exclusão
     @FXML
     void btnAplicarExclusao(ActionEvent event) {
-    	if (!txtAreaIDpesquisa.getText().isEmpty()) {
-            Long id = Long.parseLong(txtAreaIDpesquisa.getText());
+    	if (!txtAreaIDexclusao.getText().isEmpty()) {
+            Long id = Long.parseLong(txtAreaIDexclusao.getText());
 
             ProdutoDao produtoDao = new ProdutoDao();
             boolean resultado = produtoDao.deletarProduto(id);
             
+            // Chama a função listarProdutos e atualiza a TableView com os resultados
+	        List<Produto> produtos = produtoDao.listarProdutos();
+	        // Converte a lista de produtos para um ObservableList
+	        ObservableList<Produto> produtosObservable = FXCollections.observableArrayList(produtos);
+	        // Define os itens da TableView
+	        tableProdutos.setItems(produtosObservable);
+            
             if (!resultado) {
-                txtAreaIDpesquisa.clear();
+            	txtAreaIDexclusao.clear();
                 statusExclusao.setVisible(true);
             }
     	}
@@ -576,13 +678,13 @@ public class ProductController {
     
     @FXML
     void btnCancelarExcusao(ActionEvent event) {
-    	txtAreaIDpesquisa.clear();
-    	txtAreaIDpesquisa.setVisible(false);
+    	txtAreaIDexclusao.clear();
+    	paneCRUDexcluir.setVisible(false);
     }
     
     @FXML
     void btnLimparExclusao(ActionEvent event) {
-    	txtAreaIDpesquisa.clear();
+    	txtAreaIDexclusao.clear();
     }
     
     // AnchorPane buttons Pesquisa
@@ -712,12 +814,10 @@ public class ProductController {
 	        assert btnCRUDexcluir != null : "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'product.fxml'.";
 	        assert btnCRUDpesquisar != null : "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'product.fxml'.";
 	        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'product.fxml'.";
-	        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'product.fxml'.";
 	        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'product.fxml'.";
 	        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'product.fxml'.";
 	        assert btnSalespage != null : "fx:id=\"btnSalespage\" was not injected: check your FXML file 'product.fxml'.";
 	        assert dtaAreaDtaEntradaAdicionar != null : "fx:id=\"dtaAreaDtaEntradaAdicionar\" was not injected: check your FXML file 'product.fxml'.";
-	        assert dtaAreaDtaEntradaEditar != null : "fx:id=\"dtaAreaDtaEntradaEditar\" was not injected: check your FXML file 'product.fxml'.";
 	        assert dtaAreaDtaEntradaPesquisa != null : "fx:id=\"dtaAreaDtaEntradaPesquisa\" was not injected: check your FXML file 'product.fxml'.";
 	        assert paneCRUDadicionar != null : "fx:id=\"paneCRUDadicionar\" was not injected: check your FXML file 'product.fxml'.";
 	        assert paneCRUDeditar != null : "fx:id=\"paneCRUDeditar\" was not injected: check your FXML file 'product.fxml'.";
@@ -741,7 +841,6 @@ public class ProductController {
 	        assert txtAreaFornecedorEditar != null : "fx:id=\"txtAreaFornecedorEditar\" was not injected: check your FXML file 'product.fxml'.";
 	        assert txtAreaFornecedorPesquisa != null : "fx:id=\"txtAreaFornecedorPesquisa\" was not injected: check your FXML file 'product.fxml'.";
 	        assert txtAreaIDadicionar != null : "fx:id=\"txtAreaIDadicionar\" was not injected: check your FXML file 'product.fxml'.";
-	        assert txtAreaIDeditar != null : "fx:id=\"txtAreaIDeditar\" was not injected: check your FXML file 'product.fxml'.";
 	        assert txtAreaIDexclusao != null : "fx:id=\"txtAreaIDexclusao\" was not injected: check your FXML file 'product.fxml'.";
 	        assert txtAreaIDpesquisa != null : "fx:id=\"txtAreaIDpesquisa\" was not injected: check your FXML file 'product.fxml'.";
 	        assert txtAreaLocArmazemAdicionar != null : "fx:id=\"txtAreaLocArmazemAdicionar\" was not injected: check your FXML file 'product.fxml'.";

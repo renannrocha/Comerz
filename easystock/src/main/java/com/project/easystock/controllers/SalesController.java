@@ -40,9 +40,6 @@ public class SalesController {
 	    private Button btnClientpage;
 
 	    @FXML
-	    private Button btnDashbord;
-
-	    @FXML
 	    private Button btnFornecedoresPage;
 
 	    @FXML
@@ -223,21 +220,6 @@ public class SalesController {
 	        stageAtual.close();
 	        Stage novoStage = new Stage();
 	        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/client.fxml"));
-	        Scene scene = new Scene(root);
-	        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
-	        novoStage.getIcons().add(applicationIcon);
-	        novoStage.setTitle("EasyStock");
-	        novoStage.setResizable(false);
-	        novoStage.setScene(scene);
-	        novoStage.show();
-	    }
-
-	    @FXML
-	    private void btnOpenDashbord(ActionEvent event) throws IOException {
-	    	Stage stageAtual = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	        stageAtual.close();
-	        Stage novoStage = new Stage();
-	        Parent root = FXMLLoader.load(getClass().getResource("/com/project/easystock/index.fxml"));
 	        Scene scene = new Scene(root);
 	        Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
 	        novoStage.getIcons().add(applicationIcon);
@@ -489,7 +471,6 @@ public class SalesController {
 	        assert btnCRUDexcluir != null : "fx:id=\"btnCRUDexcluir\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnCRUDpesquisar != null : "fx:id=\"btnCRUDpesquisar\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnClientpage != null : "fx:id=\"btnClientpage\" was not injected: check your FXML file 'sales.fxml'.";
-	        assert btnDashbord != null : "fx:id=\"btnDashbord\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnFornecedoresPage != null : "fx:id=\"btnFornecedoresPage\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnProductPage != null : "fx:id=\"btnProductPage\" was not injected: check your FXML file 'sales.fxml'.";
 	        assert btnRequestPage != null : "fx:id=\"btnRequestPage\" was not injected: check your FXML file 'sales.fxml'.";

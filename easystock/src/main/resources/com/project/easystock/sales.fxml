@@ -15,32 +15,27 @@
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
-            <Button fx:id="btnDashbord" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenDashbord" text="Dashboard" textAlignment="CENTER">
+            <Button fx:id="btnProductPage" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenProductPage" text="Produtos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnProductPage" layoutX="122.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenProductPage" text="Produtos" textAlignment="CENTER">
+            <Button fx:id="btnFornecedoresPage" layoutX="110.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnFornecedoresPage" layoutX="215.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
+            <Button fx:id="btnClientpage" layoutX="238.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenClientPage" text="Clientes" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnClientpage" layoutX="340.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenClientPage" text="Clientes" textAlignment="CENTER">
+            <Button fx:id="btnRequestPage" layoutX="325.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnRequestPage" layoutX="424.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button disable="true" layoutX="509.0" layoutY="13.0" mnemonicParsing="false" text="Vendas" textAlignment="CENTER">
+            <Button disable="true" layoutX="412.0" layoutY="13.0" mnemonicParsing="false" text="Vendas" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>

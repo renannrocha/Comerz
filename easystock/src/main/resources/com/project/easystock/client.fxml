@@ -14,32 +14,27 @@
    <children>
       <Pane prefHeight="60.0" prefWidth="1400.0">
          <children>
-            <Button fx:id="btnDashbord" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenDashbord" text="Dashboard" textAlignment="CENTER">
+            <Button fx:id="btnProductPage" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenProductPage" text="Produtos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnProductPage" layoutX="122.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenProductPage" text="Produtos" textAlignment="CENTER">
+            <Button fx:id="btnFornecedoresPage" layoutX="110.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnFornecedoresPage" layoutX="215.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenFonecedoresPage" text="Fornecedores" textAlignment="CENTER">
+            <Button disable="true" layoutX="238.0" layoutY="13.0" mnemonicParsing="false" text="Clientes" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button disable="true" layoutX="340.0" layoutY="13.0" mnemonicParsing="false" text="Clientes" textAlignment="CENTER">
+            <Button fx:id="btnRequestPage" layoutX="325.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnRequestPage" layoutX="424.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenRequestPage" text="Pedidos" textAlignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnSalespage" layoutX="509.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenSalesPage" text="Vendas" textAlignment="CENTER">
+            <Button fx:id="btnSalespage" layoutX="413.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnOpenSalesPage" text="Vendas" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -119,10 +114,8 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-                  <TextField fx:id="txtAreaIDeditar" layoutX="36.0" layoutY="46.0" prefHeight="25.0" prefWidth="74.0" />
-                  <Text layoutX="119.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
-                  <TextField fx:id="txtAreaNomeEditar" layoutX="157.0" layoutY="46.0" />
+                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+                  <TextField fx:id="txtAreaNomeEditar" layoutX="55.0" layoutY="46.0" prefHeight="25.0" prefWidth="251.0" />
                   <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarEdicao" text="Aplicar" />
                   <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparEdicao" text="Limpar" />
                   <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarEdicao" text="Cancelar" />
@@ -195,6 +188,19 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="confirmationIDAnchorPane" layoutX="362.0" layoutY="1.0" prefHeight="233.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forneça a identificação (ID):">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaIDconfirm" layoutX="33.0" layoutY="64.0" prefHeight="25.0" prefWidth="58.0" />
+                  <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnConfirmID" text="Confirmar" />
+                  <Button layoutX="888.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnCancelID" text="Cancelar" />
                </children>
             </AnchorPane>
          </children>

@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.project.easystock.dao.PedidoDao;
+
 /**
  * JavaFX App
  */
@@ -18,6 +20,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+    	PedidoDao pedido = new PedidoDao();
+    	pedido.criarTabelaPedidos();
+    	
         scene = new Scene(loadFXML("login"), 1210, 600);
         Image applicationIcon = new Image(getClass().getResourceAsStream("/com/project/easystock/img/logo-easystock2.png"));
         stage.getIcons().add(applicationIcon);
