@@ -12,34 +12,27 @@ public class Venda implements Serializable {
     private int quantidade;
     private double precoUnitario;
     private double totalVenda;
-    private Date dataVenda;
     private String enderecoEntrega;
-    private Date dataEntregaEstimada;
-    private Date dataEntregaExata;
     private String statusPagamento;
     private String statusEntrega;
     private double custoEnvio;
     
 	public Venda(int id, int idProduto, int idCliente, int quantidade, double precoUnitario, double totalVenda,
-			Date dataVenda, String enderecoEntrega, Date dataEntregaEstimada, Date dataEntregaExata,
-			String statusPagamento, String statusEntrega, double custoEnvio) {
-		
+			String enderecoEntrega, String statusPagamento, String statusEntrega, double custoEnvio) {
 		this.id = id;
 		this.idProduto = idProduto;
 		this.idCliente = idCliente;
 		this.quantidade = quantidade;
 		this.precoUnitario = precoUnitario;
 		this.totalVenda = totalVenda;
-		this.dataVenda = dataVenda;
 		this.enderecoEntrega = enderecoEntrega;
-		this.dataEntregaEstimada = dataEntregaEstimada;
-		this.dataEntregaExata = dataEntregaExata;
 		this.statusPagamento = statusPagamento;
 		this.statusEntrega = statusEntrega;
 		this.custoEnvio = custoEnvio;
 	}
-	
+    
 	public Venda() {
+		
 	}
 
 	public int getId() {
@@ -90,36 +83,12 @@ public class Venda implements Serializable {
 		this.totalVenda = totalVenda;
 	}
 
-	public Date getDataVenda() {
-		return dataVenda;
-	}
-
-	public void setDataVenda(Date dataVenda) {
-		this.dataVenda = dataVenda;
-	}
-
 	public String getEnderecoEntrega() {
 		return enderecoEntrega;
 	}
 
 	public void setEnderecoEntrega(String enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
-	}
-
-	public Date getDataEntregaEstimada() {
-		return dataEntregaEstimada;
-	}
-
-	public void setDataEntregaEstimada(Date dataEntregaEstimada) {
-		this.dataEntregaEstimada = dataEntregaEstimada;
-	}
-
-	public Date getDataEntregaExata() {
-		return dataEntregaExata;
-	}
-
-	public void setDataEntregaExata(Date dataEntregaExata) {
-		this.dataEntregaExata = dataEntregaExata;
 	}
 
 	public String getStatusPagamento() {
@@ -145,5 +114,6 @@ public class Venda implements Serializable {
 	public void setCustoEnvio(double custoEnvio) {
 		this.custoEnvio = custoEnvio;
 	}
+	
 	
 }

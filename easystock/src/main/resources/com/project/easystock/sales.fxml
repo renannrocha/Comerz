@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -45,9 +44,9 @@
       <Line endX="1154.0" layoutX="246.0" layoutY="60.0" startX="-246.0" stroke="#d0d0d0" />
       <ScrollPane layoutY="61.0" prefHeight="651.0" prefWidth="1400.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1385.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1600.0">
                <children>
-                  <TableView fx:id="tableVendas" layoutX="14.0" layoutY="14.0" prefHeight="773.0" prefWidth="1360.0" />
+                  <TableView fx:id="tableVendas" layoutX="14.0" layoutY="14.0" prefHeight="773.0" prefWidth="1580.0" />
                </children>
             </AnchorPane>
          </content>
@@ -101,20 +100,14 @@
                   <TextField fx:id="txtAreaPrUnitarioPesquisar" layoutX="592.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
                   <Text layoutX="660.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Venda" />
                   <TextField fx:id="txtAreaTotalVendaPesquisar" layoutX="731.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
-                  <Text layoutX="14.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data da Venda" />
-                  <DatePicker fx:id="dtaAreaVendaPesquisar" layoutX="97.0" layoutY="82.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="209.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
-                  <TextField fx:id="txtAreaEnderecoEntregaPesquisar" layoutX="333.0" layoutY="82.0" prefHeight="25.0" prefWidth="467.0" />
-                  <Text layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Estimada" />
-                  <DatePicker fx:id="dtaAreaEntregaEstimadaPesquisar" layoutX="156.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="269.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Exata" />
-                  <DatePicker fx:id="dtaAreaEntregaExataPesquisar" layoutX="391.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Text layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
+                  <TextField fx:id="txtAreaEnderecoEntregaPesquisar" layoutX="136.0" layoutY="82.0" prefHeight="25.0" prefWidth="664.0" />
                   <Text layoutX="509.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Entrega" />
                   <TextField fx:id="txtAreaStsEntregaPesquisar" layoutX="611.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="15.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
-                  <TextField fx:id="txtAreaStsPagamentoPesquisar" layoutX="135.0" layoutY="154.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="333.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
-                  <TextField fx:id="txtAreaCustoEnvioPesquisar" layoutX="420.0" layoutY="155.0" prefHeight="25.0" prefWidth="62.0" />
+                  <Text layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
+                  <TextField fx:id="txtAreaStsPagamentoPesquisar" layoutX="135.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
+                  <Text layoutX="331.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
+                  <TextField fx:id="txtAreaCustoEnvioPesquisar" layoutX="425.0" layoutY="119.0" prefHeight="25.0" prefWidth="62.0" />
                </children>
             </AnchorPane>
             <Line endX="-116.0" endY="233.0" layoutX="478.0" startX="-116.0" startY="0.5" stroke="#d0d0d0" />
@@ -125,7 +118,6 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
                   <Button layoutX="973.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAplicarEdicao" text="Aplicar" />
                   <Button layoutX="837.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnLimparEdicao" text="Limpar" />
                   <Button layoutX="902.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnCancelarEdicao" text="Cancelar" />
@@ -134,7 +126,6 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="txtAreaIdEditar" layoutX="35.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
                   <Text layoutX="106.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Produto" />
                   <TextField fx:id="txtAreaIdProdutoEditar" layoutX="170.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
                   <Text layoutX="243.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Cliente" />
@@ -145,20 +136,14 @@
                   <TextField fx:id="txtAreaPrUnitarioEditar" layoutX="592.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
                   <Text layoutX="660.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Venda" />
                   <TextField fx:id="txtAreaTotalVendaEditar" layoutX="731.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
-                  <Text layoutX="14.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data da Venda" />
-                  <DatePicker fx:id="dtaAreaVendaEditar" layoutX="97.0" layoutY="82.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="209.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
-                  <TextField fx:id="txtAreaEnderecoEntregaEditar" layoutX="327.0" layoutY="82.0" prefHeight="25.0" prefWidth="467.0" />
-                  <Text layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Estimada" />
-                  <DatePicker fx:id="dtaAreaEntregaEstimadaEditar" layoutX="156.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="269.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Exata" />
-                  <DatePicker fx:id="dtaAreaEntregaExataEditar" layoutX="391.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Text layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
+                  <TextField fx:id="txtAreaEnderecoEntregaEditar" layoutX="141.0" layoutY="82.0" prefHeight="25.0" prefWidth="653.0" />
                   <Text layoutX="509.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Entrega" />
                   <TextField fx:id="txtAreaStsEntregaEditar" layoutX="611.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="15.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
-                  <TextField fx:id="txtAreaStsPagamentoEditar" layoutX="135.0" layoutY="154.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="333.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
-                  <TextField fx:id="txtAreaCustoEnvioEditar" layoutX="420.0" layoutY="155.0" prefHeight="25.0" prefWidth="62.0" />
+                  <Text layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
+                  <TextField fx:id="txtAreaStsPagamentoEditar" layoutX="140.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
+                  <Text layoutX="341.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
+                  <TextField fx:id="txtAreaCustoEnvioEditar" layoutX="437.0" layoutY="119.0" prefHeight="25.0" prefWidth="62.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="paneCRUDadicionar" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
@@ -188,20 +173,14 @@
                   <TextField fx:id="txtAreaPrUnitarioAdicionar" layoutX="592.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
                   <Text layoutX="660.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Venda" />
                   <TextField fx:id="txtAreaTotalVendaAdicionar" layoutX="731.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
-                  <Text layoutX="14.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data da Venda" />
-                  <DatePicker fx:id="dtaAreaVendaAdicionar" layoutX="97.0" layoutY="82.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="209.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
-                  <TextField fx:id="txtAreaEnderecoEntregaAdicionar" layoutX="327.0" layoutY="82.0" prefHeight="25.0" prefWidth="467.0" />
-                  <Text layoutX="14.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Estimada" />
-                  <DatePicker fx:id="dtaAreaEntregaEstimadaAdicionar" layoutX="156.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
-                  <Text layoutX="269.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Entrega Exata" />
-                  <DatePicker fx:id="dtaAreaEntregaExataAdicionar" layoutX="391.0" layoutY="119.0" prefHeight="25.0" prefWidth="107.0" />
+                  <Text layoutX="20.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço de Entrega" />
+                  <TextField fx:id="txtAreaEnderecoEntregaAdicionar" layoutX="141.0" layoutY="82.0" prefHeight="25.0" prefWidth="653.0" />
                   <Text layoutX="509.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Entrega" />
                   <TextField fx:id="txtAreaStsEntregaAdicionar" layoutX="611.0" layoutY="119.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="15.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
-                  <TextField fx:id="txtAreaStsPagamentoAdicionar" layoutX="135.0" layoutY="154.0" prefHeight="25.0" prefWidth="185.0" />
-                  <Text layoutX="333.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
-                  <TextField fx:id="txtAreaCustoEnvioAdicionar" layoutX="420.0" layoutY="155.0" prefHeight="25.0" prefWidth="62.0" />
+                  <Text layoutX="10.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status de Pagamento" />
+                  <TextField fx:id="txtAreaStsPagamentoAdicionar" layoutX="135.0" layoutY="118.0" prefHeight="25.0" prefWidth="185.0" />
+                  <Text layoutX="333.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Envio" />
+                  <TextField fx:id="txtAreaCustoEnvioAdicionar" layoutX="432.0" layoutY="119.0" prefHeight="25.0" prefWidth="62.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="paneCRUDexcluir" layoutX="362.0" prefHeight="234.0" prefWidth="1040.0" visible="false">
@@ -221,6 +200,19 @@
                      </font>
                   </Text>
                   <TextField fx:id="txtAreaIdExcluir" layoutX="35.0" layoutY="46.0" prefHeight="25.0" prefWidth="62.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="confirmationIDAnchorPane" layoutX="362.0" prefHeight="233.0" prefWidth="1040.0" visible="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forneça a identificação (ID):">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                  <TextField fx:id="txtAreaIDconfirm" layoutX="33.0" layoutY="64.0" prefHeight="25.0" prefWidth="58.0" />
+                  <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnConfirmID" text="Confirmar" />
+                  <Button layoutX="888.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnCancelID" text="Cancelar" />
                </children>
             </AnchorPane>
          </children>
