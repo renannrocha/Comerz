@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.project.easystock.model.Produto;
 import com.project.easystock.utils.PostgresSQLConnectionUtil;
@@ -64,7 +63,7 @@ public class ProdutoDao {
 			return false;
 		}
 	}
-	
+	// search
 	public Produto buscarProdutoPorId(Long id) {
 	    Produto produto = null;
 	    String sql = "SELECT * FROM Produtos WHERE id = ?";

@@ -503,6 +503,21 @@ public class ProductController {
 	        ObservableList<Produto> produtosObservable = FXCollections.observableArrayList(produtos);
 	        // Define os itens da TableView
 	        tableProdutos.setItems(produtosObservable);
+	        txtAreaCategoriaAdicionar.clear();
+		    txtAreaDimencoesAdicionar.clear();
+		    txtAreaCodBarrasAdicionar.clear();
+		    txtAreaFornecedorAdicionar.clear();
+		    txtAreaIDadicionar.clear();
+		    txtAreaLocArmazemAdicionar.clear();
+		    txtAreaNomeAdicionar.clear();
+		    txtAreaMarcaAdicionar.clear();
+		    txtAreaPesoAdicionar.clear();
+		    txtAreaPrecoCustoAdicionar.clear();
+		    txtAreaPrecoVendaAdicionar.clear();
+		    txtAreaQtdEstoqueAdicionar.clear();
+		    txtAreaSKUadicionar.clear();
+		    txtAreaSTSprodutoAdicionar.clear();
+			paneCRUDadicionar.setVisible(false);
 	        
 	    } else {
 	        System.out.println("Falha ao adicionar o produto.");
@@ -512,12 +527,39 @@ public class ProductController {
 	
 	@FXML
     void btnCancelarAdicao(ActionEvent event) {
-
+		txtAreaCategoriaAdicionar.clear();
+	    txtAreaDimencoesAdicionar.clear();
+	    txtAreaCodBarrasAdicionar.clear();
+	    txtAreaFornecedorAdicionar.clear();
+	    txtAreaIDadicionar.clear();
+	    txtAreaLocArmazemAdicionar.clear();
+	    txtAreaNomeAdicionar.clear();
+	    txtAreaMarcaAdicionar.clear();
+	    txtAreaPesoAdicionar.clear();
+	    txtAreaPrecoCustoAdicionar.clear();
+	    txtAreaPrecoVendaAdicionar.clear();
+	    txtAreaQtdEstoqueAdicionar.clear();
+	    txtAreaSKUadicionar.clear();
+	    txtAreaSTSprodutoAdicionar.clear();
+		paneCRUDadicionar.setVisible(false);
     }
 	
 	@FXML
     void btnLimparAdicao(ActionEvent event) {
-
+		txtAreaCategoriaAdicionar.clear();
+	    txtAreaDimencoesAdicionar.clear();
+	    txtAreaCodBarrasAdicionar.clear();
+	    txtAreaFornecedorAdicionar.clear();
+	    txtAreaIDadicionar.clear();
+	    txtAreaLocArmazemAdicionar.clear();
+	    txtAreaNomeAdicionar.clear();
+	    txtAreaMarcaAdicionar.clear();
+	    txtAreaPesoAdicionar.clear();
+	    txtAreaPrecoCustoAdicionar.clear();
+	    txtAreaPrecoVendaAdicionar.clear();
+	    txtAreaQtdEstoqueAdicionar.clear();
+	    txtAreaSKUadicionar.clear();
+	    txtAreaSTSprodutoAdicionar.clear();
     }
 	
 	// AnchorPane buttons Editar
